@@ -1,0 +1,36 @@
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Datasets and audio
+data/
+datasets/
+*.wav
+*.mp3
+*.flac
+
+# Model checkpoints
+*.pt
+*.pth
+*.ckpt
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Frontend
+node_modules/
+dist/
+
+# System and IDE
+.DS_Store
+Thumbs.db
+.vscode/
