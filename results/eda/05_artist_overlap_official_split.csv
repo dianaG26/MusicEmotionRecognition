@@ -1,0 +1,3 @@
+,songs,artist_in_train,share
+validate,484.0,307.0,0.6343
+test,484.0,320.0,0.6612

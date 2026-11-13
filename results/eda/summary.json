@@ -1,0 +1,67 @@
+{
+  "n_samples": 3232,
+  "per_quadrant": {
+    "Q1": 808,
+    "Q2": 808,
+    "Q3": 808,
+    "Q4": 808
+  },
+  "missing_artist": 3,
+  "label_av_agreement": 1.0,
+  "share_near_boundary_0.05": 0.2543,
+  "av_std": {
+    "arousal": 0.1354,
+    "valence": 0.2246
+  },
+  "clips_under_29s": 72,
+  "clips_under_15s": [
+    "MT0002054074",
+    "MT0006678796",
+    "MT0013621344",
+    "MT0013914319"
+  ],
+  "duplicate_pairs": 6,
+  "duplicate_pairs_by_split": {
+    "train / validate": 3,
+    "train / train": 2,
+    "test / validate": 1
+  },
+  "distinct_artists": 1620,
+  "artist_majority_quadrant_share": 0.85,
+  "official_split_artist_overlap": {
+    "validate": {
+      "songs": 484,
+      "artist_in_train": 307,
+      "share": 0.6343
+    },
+    "test": {
+      "songs": 484,
+      "artist_in_train": 320,
+      "share": 0.6612
+    }
+  },
+  "genre_quadrant_cramers_v": 0.378,
+  "top_features_kruskal": [
+    "spectral_contrast_03_mean",
+    "spectral_contrast_02_mean",
+    "spectral_contrast_04_mean",
+    "mfcc_01_mean",
+    "spectral_contrast_05_mean",
+    "zcr_mean",
+    "chroma_04_mean",
+    "spectral_centroid_mean",
+    "chroma_09_mean",
+    "spectral_contrast_05_std"
+  ],
+  "max_epsilon2_arousal": 0.513,
+  "max_epsilon2_q3_vs_q4": 0.025,
+  "pairs_abs_corr_over_0.9": 10,
+  "train_outlier_clips": [],
+  "pca_first_two_variance": 0.3671,
+  "pca_axis_correlations": {
+    "PC1 vs arousal": -0.348,
+    "PC1 vs valence": 0.162,
+    "PC2 vs arousal": 0.41,
+    "PC2 vs valence": 0.035
+  }
+}

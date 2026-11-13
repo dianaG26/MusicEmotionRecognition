@@ -1,0 +1,6 @@
+best feature: high vs low arousal,ε² (arousal),best feature: Q3 vs Q4,ε² (Q3 vs Q4)
+spectral_contrast_02_mean,0.513,mfcc_03_std,0.025
+spectral_contrast_03_mean,0.512,mfcc_03_mean,0.024
+mfcc_01_mean,0.43,mfcc_13_std,0.019
+spectral_contrast_04_mean,0.427,spectral_contrast_03_mean,0.016
+zcr_mean,0.39,mfcc_12_std,0.016

@@ -1,0 +1,11 @@
+feature_a,feature_b,spearman
+spectral_centroid_mean,spectral_rolloff_mean,0.9773351870573029
+mfcc_02_mean,spectral_centroid_mean,-0.9454546328150866
+mfcc_02_mean,spectral_rolloff_mean,-0.9403023933701378
+spectral_bandwidth_mean,spectral_rolloff_mean,0.9328639996164492
+mfcc_delta_01_std,onset_strength_std,0.9176996877877668
+mfcc_02_mean,spectral_bandwidth_mean,-0.9083758447773113
+spectral_bandwidth_std,spectral_rolloff_std,0.9071901050313063
+mfcc_02_mean,spectral_flatness_mean,-0.9060645277722504
+spectral_contrast_03_mean,spectral_contrast_04_mean,0.90342750706176
+spectral_contrast_04_mean,spectral_contrast_05_mean,0.9030267957375545

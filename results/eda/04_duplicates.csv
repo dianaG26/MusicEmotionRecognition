@@ -1,0 +1,13 @@
+Song,Artist,Title,Quadrant,Arousal,Valence,Split
+A066-140,Enya,Journey of the Angels,Q4,0.025000000000000022,0.6875,train
+MT0009795009,Enya,Journey of the Angels,Q4,0.335625,0.63125,validate
+MT0003965796,Gloria Estefan,Rhythm Is Gonna Get You,Q1,0.595,0.8,test
+MT0007132421,Gloria Estefan,Rhythm Is Gonna Get You,Q1,0.63125,0.82125,validate
+A114-120,Luther Vandross,Never Too Much,Q1,0.85,0.875,train
+MT0011933875,Luther Vandross,Never Too Much,Q1,0.515,0.7775,validate
+A105-117,Prince,Kiss,Q1,0.85,0.8125,train
+MT0002343207,Prince,Kiss,Q1,0.59625,0.791875,train
+A005,Prince,U Got the Look,Q1,0.7875,0.7125,validate
+MT0004444570,Prince,U Got the Look,Q1,0.52125,0.658125,train
+A051,Slayer,Can't Stand You,Q2,0.975,0.08750000000000002,train
+MT0028810869,Slayer,Can't Stand You,Q2,0.583125,0.305625,train
