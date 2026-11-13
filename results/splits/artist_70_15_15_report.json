@@ -1,0 +1,61 @@
+{
+  "split_name": "artist_70_15_15",
+  "method": "StratifiedGroupKFold: test = first fold of 7, validation = first fold of 6 on the remainder; groups = artist (case-insensitive), songs without artist form their own group; stratified by quadrant",
+  "seed": 42,
+  "n_songs": 3232,
+  "n_groups": 1623,
+  "artist_split": {
+    "counts": {
+      "train": {
+        "Q1": 576,
+        "Q2": 577,
+        "Q3": 578,
+        "Q4": 577,
+        "total": 2308,
+        "share": 0.714
+      },
+      "validate": {
+        "Q1": 116,
+        "Q2": 115,
+        "Q3": 115,
+        "Q4": 116,
+        "total": 462,
+        "share": 0.143
+      },
+      "test": {
+        "Q1": 116,
+        "Q2": 116,
+        "Q3": 115,
+        "Q4": 115,
+        "total": 462,
+        "share": 0.143
+      }
+    },
+    "artists_shared_between_sets": {
+      "train & validate": 0,
+      "train & test": 0,
+      "validate & test": 0
+    },
+    "share_of_songs_with_artist_in_train": {
+      "validate": 0.0,
+      "test": 0.0
+    },
+    "duplicate_pairs_split_across_sets": 0
+  },
+  "official_split": {
+    "artists_shared_between_sets": {
+      "train & validate": 223,
+      "train & test": 215,
+      "validate & test": 101
+    },
+    "share_of_songs_with_artist_in_train": {
+      "validate": 0.6343,
+      "test": 0.6612
+    },
+    "duplicate_pairs_split_across_sets": 4
+  },
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "sklearn": "1.9.1",
+  "pandas": "3.1.1"
+}
