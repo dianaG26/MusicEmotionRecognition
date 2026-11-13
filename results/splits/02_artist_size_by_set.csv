@@ -1,0 +1,7 @@
+,,1 song,2–5 songs,6–15 songs,> 15 songs
+A (official),train,0.342,0.414,0.172,0.071
+A (official),validate,0.291,0.442,0.184,0.083
+A (official),test,0.269,0.415,0.213,0.103
+B (artist-grouped),train,0.323,0.422,0.18,0.075
+B (artist-grouped),validate,0.329,0.405,0.199,0.067
+B (artist-grouped),test,0.32,0.416,0.162,0.102

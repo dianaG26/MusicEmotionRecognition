@@ -1,0 +1,3 @@
+variable,mean A test,mean B test,KS statistic,KS p
+Arousal,0.4738,0.4815,0.0345,0.928
+Valence,0.52,0.512,0.0504,0.5632

@@ -1,0 +1,59 @@
+{
+  "songs_in_both_test_sets": 80,
+  "artist_overlap": [
+    {
+      "protocol": "A (official)",
+      "set": "validate",
+      "songs": 484,
+      "distinct artists": 389,
+      "songs with artist in train": 307,
+      "share with artist in train": 0.634
+    },
+    {
+      "protocol": "A (official)",
+      "set": "test",
+      "songs": 484,
+      "distinct artists": 370,
+      "songs with artist in train": 320,
+      "share with artist in train": 0.661
+    },
+    {
+      "protocol": "B (artist-grouped)",
+      "set": "validate",
+      "songs": 462,
+      "distinct artists": 232,
+      "songs with artist in train": 0,
+      "share with artist in train": 0.0
+    },
+    {
+      "protocol": "B (artist-grouped)",
+      "set": "test",
+      "songs": 462,
+      "distinct artists": 229,
+      "songs with artist in train": 0,
+      "share with artist in train": 0.0
+    }
+  ],
+  "genre_test_chi2_p": 0.006,
+  "genre_test_tvd": 0.1366,
+  "genre_quadrant_cramers_v_in_test": {
+    "A test": 0.336,
+    "B test": 0.384
+  },
+  "labels_ks": {
+    "Arousal": {
+      "statistic": 0.03453364817001181,
+      "p": 0.9280036250079906
+    },
+    "Valence": {
+      "statistic": 0.05037386855568671,
+      "p": 0.5631528548468204
+    }
+  },
+  "near_boundary_share_test": {
+    "A test": 0.24,
+    "B test": 0.221
+  },
+  "feature_max_abs_smd": 0.0937,
+  "features_with_ks_p_below_0.05": []
+}

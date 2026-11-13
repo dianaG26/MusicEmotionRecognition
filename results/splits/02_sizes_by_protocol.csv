@@ -1,0 +1,7 @@
+,,Q1,Q2,Q3,Q4,total
+A (official),train,566,566,566,566,2264
+A (official),validate,121,121,121,121,484
+A (official),test,121,121,121,121,484
+B (artist-grouped),train,576,577,578,577,2308
+B (artist-grouped),validate,116,115,115,116,462
+B (artist-grouped),test,116,116,115,115,462

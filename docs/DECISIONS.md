@@ -17,6 +17,7 @@ Status values: **decided** — supported by evidence and applied; **pending** �
 | D09 | Hand-crafted feature set and extraction settings | decided | `src/features.py`; `data/features/features_librosa.json` |
 | D10 | Model selection on validation, single evaluation on test, macro-F1 as main metric | decided | `src/train_classic.py` (planned) |
 | D11 | Verify the downloaded archive against the Zenodo checksum | pending | `docs/data_check_report.md` |
+| D12 | Repeat protocol B with several random seeds | pending (proposed) | `notebooks/02_split_analysis.ipynb` §3–§5 |
 
 ---
 
@@ -114,3 +115,13 @@ The difference between the two scores measures how much of a model's performance
 **Status.** Pending: the Zenodo checksum has not been compared yet.
 
 **Evidence.** `docs/data_check_report.md`.
+
+## D12 — Repeat protocol B with several random seeds
+
+**Proposed decision.** Protocol B is generated with several random seeds (for example five) and each model is evaluated on all of them; the result of protocol B is reported as the mean and standard deviation across seeds.
+
+**Reasons.** The test sets of the two protocols are comparable in class balance, emotion labels (Kolmogorov–Smirnov p ≈ 0.93 for arousal, 0.56 for valence), share of samples near a quadrant boundary (24% and 22%) and the ten most discriminative features (all |SMD| < 0.1). They differ, as intended, in artist overlap (66% against 0% of test songs with an artist seen in training). They also differ moderately in genre mix (chi-square p ≈ 0.006, total variation distance ≈ 0.14; B's test set has more Pop/Rock), because grouping by artist moves genres in blocks. With a single artist-grouped split, part of the difference between A and B could come from this particular genre mix. Averaging over several seeds averages over different genre mixes and also shows how much the result of protocol B varies from one split to another.
+
+**Status.** Pending: to be confirmed before training. The current split (seed 42) is kept as the first of the repetitions.
+
+**Evidence.** `notebooks/02_split_analysis.ipynb` §3–§5; `results/splits/02_genre_share_test_sets.png`, `results/splits/02_labels_test_sets.png`, `results/splits/02_feature_shift_test_sets.png`, `results/splits/02_split_comparison_summary.json`.

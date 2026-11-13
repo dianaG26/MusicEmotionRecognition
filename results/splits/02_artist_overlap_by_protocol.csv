@@ -1,0 +1,5 @@
+protocol,set,songs,distinct artists,songs with artist in train,share with artist in train
+A (official),validate,484,389,307,0.634
+A (official),test,484,370,320,0.661
+B (artist-grouped),validate,462,232,0,0.0
+B (artist-grouped),test,462,229,0,0.0
