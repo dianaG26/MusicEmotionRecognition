@@ -1,0 +1,4 @@
+model,fit_seconds,predict_ms_per_song,size_MB,test_macro_f1
+logreg,0.0913,0.0027,0.0098,0.6486
+svm,0.4901,0.3913,2.3411,0.671
+rf,2.1366,0.4248,27.815,0.6436

@@ -1,0 +1,13 @@
+family,feature_set,model,train_macro_f1,val_macro_f1,test_macro_f1,train_minus_test,val_minus_test
+A,base,logreg,0.7,0.649,0.627,0.073,0.022
+A,base,rf,1.0,0.663,0.634,0.366,0.029
+A,base,svm,0.858,0.681,0.648,0.209,0.033
+A,tonal,logreg,0.711,0.66,0.649,0.062,0.012
+A,tonal,rf,0.999,0.689,0.644,0.355,0.045
+A,tonal,svm,0.866,0.677,0.671,0.195,0.006
+B,base,logreg,0.714,0.641,0.645,0.069,-0.004
+B,base,rf,1.0,0.661,0.65,0.349,0.01
+B,base,svm,0.847,0.656,0.645,0.202,0.011
+B,tonal,logreg,0.728,0.652,0.652,0.076,-0.0
+B,tonal,rf,1.0,0.66,0.663,0.337,-0.003
+B,tonal,svm,0.854,0.655,0.662,0.192,-0.007

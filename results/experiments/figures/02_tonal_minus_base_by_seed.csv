@@ -1,0 +1,5 @@
+model,mean,std,positive,seeds
+logreg,0.0069,0.0142,3,5
+rf,0.0126,0.0118,4,5
+svm,0.017,0.0065,5,5
+vote,0.014,0.0112,4,5

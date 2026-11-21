@@ -1,0 +1,28 @@
+{
+  "chance_B": 0.259,
+  "best_B": [
+    [
+      "tonal",
+      "vote"
+    ],
+    0.664
+  ],
+  "logreg_B_tonal": 0.652,
+  "tonal_gain_B": {
+    "logreg": 0.0069,
+    "rf": 0.0126,
+    "svm": 0.017,
+    "vote": 0.014
+  },
+  "mcnemar_significant_counts": {
+    "svm_tonal vs rf_tonal": 0,
+    "svm_tonal vs logreg_tonal": 1,
+    "rf_tonal vs logreg_tonal": 0,
+    "vote_tonal vs svm_tonal": 0,
+    "vote_tonal vs rf_tonal": 0,
+    "svm_tonal vs svm_base": 0,
+    "rf_tonal vs rf_base": 0
+  },
+  "vote_beats_best_single_on_val": "6 of 12",
+  "q3q4_genre_chi2_p": 0.0
+}

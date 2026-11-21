@@ -1,0 +1,148 @@
+Song,Artist,Title,MainGenre,true,most_common_pred,seeds
+A011,The Beatles,P.S. I Love You,Contemporary Pop/Rock,Q1,Q3,2
+A018,Tony Bennett,Solitude,Vocal Jazz,Q3,Q4,2
+A151-172,Black Sabbath,War Pigs,Hard Rock,Q2,Q1,3
+MT0000043184,Dolly Parton,God Won't Get You,Country,Q3,Q4,2
+MT0000080053,Patsy Cline,Honky Tonk Merry-Go Round,Country,Q1,Q3,2
+MT0000088320,Concrete Blonde,I Call It Love,Pop/Rock,Q3,Q2,2
+MT0000103049,Patsy Cline,Just a Closer Walk With Thee,Country,Q4,Q3,2
+MT0000185601,OutKast,Hey Ya!,Contemporary R&B,Q1,Q2,2
+MT0000192913,Eminem,If I Had,Rap,Q3,Q1,2
+MT0000318279,Tony Bennett,Stella by Starlight,Jazz,Q4,Q3,2
+MT0000553622,k.d. lang,Flame of the Uninspired,Country,Q3,Q4,2
+MT0000685324,k.d. lang,Love Is Like a Cigarette,Jazz,Q3,Q4,2
+MT0000747666,Diana Ross,One More Chance,Pop/Rock,Q3,Q4,2
+MT0000754511,Moby,I'm Not Worried at All,Electronic,Q4,Q3,2
+MT0000811092,George Treadwell & His All-Stars,East of the Sun (And West of the Moon),Jazz,Q4,Q3,2
+MT0000850957,Red C,6 O'Clock News,Pop/Rock,Q2,Q3,2
+MT0000886390,Dolly Parton,Randy,Country,Q1,Q3,2
+MT0000900995,Ella Fitzgerald,You Go to My Head,Jazz,Q4,Q3,2
+MT0001030436,Tears for Fears,When in Love With a Blind Man,Unknown,Q3,Q4,2
+MT0001115644,Doug Stone,Gone Out of My Mind,Country,Q3,Q4,3
+MT0001323890,Plastikman,Sickness,Electronic,Q3,Q4,2
+MT0001377616,Moby,Sleep Alone,Electronic,Q4,Q3,2
+MT0001453285,Marvin Gaye,I Won't Cry Anymore,Easy Listening,Q3,Q4,2
+MT0001494267,Gregory Isaacs,Paymaster (A.K.A. Slavemaster),Reggae,Q3,Q1,3
+MT0001515028,Dolly Parton,She Believes in Me,Country,Q4,Q3,2
+MT0001574245,Nick Lowe,Born a Woman,Pop/Rock,Q1,Q2,4
+MT0001609626,Mercyful Fate,Doomed by the Living Dead,Electronic,Q1,Q2,2
+MT0001638394,Natalie Cole,"His Eyes, Her Eyes",Jazz,Q4,Q3,2
+MT0001671399,Jimmy Buffett,Caribbean Amphibian,Children's,Q1,Q4,2
+MT0002006203,Ray Brown,Ill Wind,Jazz,Q3,Q4,2
+MT0002054074,Amy Grant,Like I Love You,Pop/Rock,Q4,Q2,2
+MT0002510318,Mï¿½m,Green Grass of Tunnel,Electronic,Q3,Q4,2
+MT0002580064,Johnny Winter,Early in the Morning,Blues,Q3,Q1,2
+MT0002675791,Elvis Presley,Welcome to My World,Country,Q4,Q3,4
+MT0002771537,Mariah Carey,I Only Wanted,R&B,Q3,Q4,2
+MT0002903697,Jimmy Buffett,Blue Heaven Rendezvous,Pop/Rock,Q4,Q3,2
+MT0002920876,Jimmy Buffett,Tonight I Just Need My Guitar,Pop/Rock,Q4,Q3,2
+MT0003328491,Billy Ray Cyrus,Need a Little Help,Country,Q3,Q1,2
+MT0003367947,Arab Strap,Islands,Pop/Rock,Q3,Q2,2
+MT0003402538,Marvin Gaye,I Wish I Liked You (As Much as I Love You),R&B,Q3,Q4,2
+MT0003428477,Frank Sinatra,Polka Dots and Moonbeams,Jazz,Q4,Q3,3
+MT0003510796,Del the Funky Homosapien,Rock the House [Edit],Electronic,Q4,Q1,2
+MT0003530174,Taxi,Love Fool,Electronic,Q3,Q1,3
+MT0003536193,Marvin Gaye,Ain't No Mountain High Enough,R&B,Q1,Q2,2
+MT0003792475,Black Rebel Motorcycle Club,Rifles,Pop/Rock,Q3,Q2,2
+MT0003935299,Ella Fitzgerald,We'll Be Together Again,Jazz,Q4,Q3,2
+MT0004037272,Gilberto Gil,Expresso 2222,International,Q1,Q4,2
+MT0004131260,Voivod,Odds & Frauds,Pop/Rock,Q3,Q2,2
+MT0004184616,Ella Fitzgerald,I Gotta Right to Sing the Blues,Jazz,Q3,Q4,2
+MT0004232099,Ella Fitzgerald,Suppertime,Jazz,Q3,Q4,2
+MT0004296158,Bobby Hutcherson,Juba Dance,Jazz,Q3,Q4,2
+MT0004397754,Sheek Louch,Pressure,Rap,Q3,Q1,2
+MT0004633915,Amy Grant,Nobody Home,Pop/Rock,Q4,Q1,2
+MT0004693207,Maria Muldaur,TB Blues,Blues,Q3,Q4,2
+MT0004836526,Eminem,Mosh,Rap,Q2,Q1,2
+MT0005111463,Shenandoah,See If I Care,Country,Q3,Q4,2
+MT0005112174,Jon Secada,Otro Dia Mas Sin Verte,Latin,Q4,Q1,2
+MT0005254421,Beanie Sigel,"What Your Life Like, Pt. 2",Rap,Q3,Q2,2
+MT0005389048,Beanie Sigel,What Ya Life Like,Rap,Q3,Q1,2
+MT0005479384,Missy Elliott,Can We,R&B,Q4,Q1,2
+MT0005740567,Inner Circle,You've Lost That Lovin' Feelin',Reggae,Q3,Q1,2
+MT0005822463,Laura Veirs,Blue Ink,Country,Q3,Q4,2
+MT0005827376,Marvin Gaye,I Want You,R&B,Q4,Q1,2
+MT0006114773,Journey,Can't Tame the Lion,Pop/Rock,Q1,Q2,2
+MT0006153804,Juelz Santana,Lil' Boy Fresh,Rap,Q3,Q1,2
+MT0006164654,Richard & Mimi Fariï¿½a,"Reno, Nevada",Folk,Q4,Q1,2
+MT0006188933,Bob Dylan,Bob Dylan's Blues,Folk,Q1,Q4,3
+MT0006263439,Johnny Winter,Big Boss Man,Blues,Q3,Q2,2
+MT0006417602,Gretchen Wilson,What Happened,Country,Q3,Q4,3
+MT0006431184,Bob Dylan,Talkin' New York,Folk,Q1,Q4,3
+MT0006771406,Beyoncï¿½,Crazy in Love,Pop/Rock,Q1,Q2,2
+MT0007031334,Layo & Bushwacka!,We Meet at Last,Electronic,Q3,Q1,3
+MT0007477802,Billy Ray Cyrus,Cover to Cover,Country,Q3,Q4,2
+MT0007497706,Blind James Campbell,I Never Had Nothing,Blues,Q3,Q1,3
+MT0007583962,Blind James Campbell,Will the Circle Be Unbroken,Blues,Q3,Q1,3
+MT0007607008,Disturbing tha Peace,Gettin' Some,Rap,Q1,Q2,2
+MT0007610380,Blind James Campbell,I'm Crazy About You Baby,Blues,Q3,Q1,3
+MT0008033398,Roy Harvey,Take Me Back to Home and Mother,Country,Q3,Q1,2
+MT0008068959,Ute Lemper,'Round Midnight,Electronic,Q3,Q4,3
+MT0008267476,Blind James Campbell,When the Saints Go Marching In,Blues,Q3,Q1,3
+MT0008515901,Big Joe Williams Trio,Baby Please Don't Go,Blues,Q3,Q1,2
+MT0008718991,Blind James Campbell,Detroit Blues,Blues,Q3,Q1,3
+MT0009320357,Black Sabbath,The Writ,Pop/Rock,Q2,Q1,3
+MT0009354859,Luis Miguel,"Navidad, Navidad",Holiday,Q4,Q1,2
+MT0009400121,DJ Clue?,Keep It Thoro,Rap,Q2,Q1,2
+MT0010065686,Flo Rida,Right Round,Rap,Q1,Q2,3
+MT0010100277,The Beatles,Run for Your Life,Pop/Rock,Q2,Q1,2
+MT0010100278,The Beatles,When I'm Sixty-Four,Pop/Rock,Q1,Q4,2
+MT0010290788,Bob Dylan,O' Little Town of Bethlehem,Country,Q4,Q3,3
+MT0010305995,Bob Dylan,O' Come All Ye Faithful (Adeste Fideles),Country,Q4,Q3,3
+MT0010375510,Gregory Isaacs,Let off Supm,Reggae,Q3,Q4,3
+MT0010444469,Inner Circle,"We ""A"" Rockers",Reggae,Q4,Q1,2
+MT0010701054,Conway Twitty,"Sweet, Sweet Spirit",Country,Q4,Q3,2
+MT0010702898,Frank Sinatra,I'm Getting Sentimental Over You,Pop/Rock,Q4,Q3,3
+MT0010705334,Prince,I Feel for You,Electronic,Q1,Q4,2
+MT0010823031,Lonnie Brooks,Skid Row,Blues,Q3,Q4,2
+MT0011558921,The Rolling Stones,Around and Around,Blues,Q1,Q4,2
+MT0011772341,Dolly Parton,Potential New Boyfriend,Country,Q1,Q3,2
+MT0011914836,The Beatles,I Saw Her Standing There,Pop/Rock,Q1,Q2,2
+MT0011924930,Mariah Carey,All I Want for Christmas Is You,Holiday,Q1,Q4,2
+MT0011928183,Elvis Presley,Paralyzed,Rockabilly,Q1,Q3,4
+MT0011966998,Tony Bennett,Antonia,Jazz,Q4,Q3,2
+MT0011974870,Shenandoah,Hey Mister (I Need This Job),Country,Q3,Q4,2
+MT0011982393,Frank Sinatra,Young at Heart,Jazz,Q4,Q3,3
+MT0011996860,Rockin' Dopsie & the Zydeco Twisters,The Things I Used to Do,International,Q3,Q1,2
+MT0012247942,Tears for Fears,Watch Me Bleed,Pop/Rock,Q3,Q1,2
+MT0012276467,Eddie Heywood,How Am I to Know?,Blues,Q3,Q4,2
+MT0012697686,Artie Shaw & His Orchestra,I Could Write a Book,Jazz,Q1,Q3,2
+MT0012823048,Conway Twitty,"Darling, You Know I Wouldn't Lie",Country,Q3,Q4,2
+MT0012846850,Joe Cuba,No Coman Cuento,Latin,Q1,Q4,2
+MT0012988776,Conway Twitty,How Much More Can She Stand,Country,Q3,Q4,2
+MT0013758625,Chuck Berry,Sweet Little Sixteen or Johnny B. Goode,Pop/Rock,Q1,Q3,2
+MT0014134790,Beanie Sigel,Lord Have Mercy,Rap,Q4,Q3,2
+MT0014215479,Michael Franti,Love Kamikaze,International,Q4,Q1,2
+MT0014794891,B.G.,Kill or Be Killed,Rap,Q3,Q1,2
+MT0014979000,Grand Corps Malade,Rencontres,Rap,Q3,Q2,3
+MT0015004289,Grand Corps Malade,Toucher l'Instant,Rap,Q3,Q4,3
+MT0015139461,Calvin Richardson,Drama,Pop/Rock,Q3,Q1,2
+MT0015599764,2XL,Mama of Mine,Rap,Q3,Q1,2
+MT0015706588,Son House,I'm Satisfied,Blues,Q4,Q3,2
+MT0015971175,Hilltop Hoods,Monsters Ball Restrung,Rap,Q2,Q1,2
+MT0016956738,Ewa Farna,Kocka Na Rozpï¿½lenï¿½ Strese,Pop/Rock,Q2,Q1,2
+MT0017667847,Chingy,How We Feel,Rap,Q4,Q1,2
+MT0019446620,Rï¿½yksopp,Miss It So Much,Electronic,Q4,Q1,2
+MT0026228956,Ledisi,Higher Than This,R&B,Q4,Q1,3
+MT0026790435,Chingy,I Like That,Rap,Q1,Q2,2
+MT0026990793,The Last Poets,"Run, Nigger",Comedy/Spoken,Q2,Q1,2
+MT0027976714,Ella Fitzgerald,Night and Day,Jazz,Q4,Q3,2
+MT0028694655,Harry James,Cherry,Easy Listening,Q4,Q3,2
+MT0028813196,Lyfe Jennings,More Than a Girl,R&B,Q4,Q1,2
+MT0029063409,Corinne Bailey Rae,Choux Pastry Heart,Pop/Rock,Q4,Q3,2
+MT0029091265,Patsy Cline,Just a Closer Walk with The,Country,Q4,Q3,2
+MT0030006612,Michael Franti,I Wish That I Could Be You,R&B,Q4,Q1,2
+MT0030160582,The Last Poets,This Is Madness,Comedy/Spoken,Q2,Q1,2
+MT0030203700,Don Cox,All over Town,Country,Q3,Q4,2
+MT0030362299,Frank Sinatra,Lover,Jazz,Q1,Q3,3
+MT0031555265,Hilltop Hoods,City of Light Restrung,Rap,Q2,Q1,2
+MT0031615488,Duke Ellington,Snibor,Jazz,Q4,Q3,2
+MT0031834881,Bob Dylan,Summer Days,Pop/Rock,Q1,Q2,3
+MT0031979912,Nick Lowe,When I Write the Book,Pop/Rock,Q1,Q4,4
+MT0032093528,Ella Fitzgerald,East of the Sun,Jazz,Q4,Q3,2
+MT0032768117,Gregory Isaacs,Loving Pauper,Reggae,Q4,Q3,3
+MT0033159895,Bobby Bare,What Am I Gonna Do,Country,Q3,Q1,2
+MT0033974184,Hilltop Hoods,The Hard Road Restrung,Rap,Q2,Q1,2
+MT0034130398,The Last Poets,"New York, New York",Comedy/Spoken,Q2,Q1,2
+MT0034210118,MC Hammer,Help the Children,R&B,Q4,Q1,2
+MT0034403159,Simple Minds,Twist/Run/Repulsion,Pop/Rock,Q2,Q1,2

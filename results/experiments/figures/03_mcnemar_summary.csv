@@ -1,0 +1,8 @@
+comparison,splits,significant,left_better
+svm_tonal vs rf_tonal,6,0,3
+svm_tonal vs logreg_tonal,6,1,4
+rf_tonal vs logreg_tonal,6,0,4
+vote_tonal vs svm_tonal,6,0,4
+vote_tonal vs rf_tonal,6,0,4
+svm_tonal vs svm_base,6,0,6
+rf_tonal vs rf_base,6,0,5
