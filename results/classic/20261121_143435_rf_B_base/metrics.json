@@ -1,0 +1,57 @@
+{
+  "model": "rf",
+  "protocol": "B",
+  "split": "artist_70_15_15",
+  "feature_set": "base",
+  "feature_files": [
+    "features_librosa.csv"
+  ],
+  "n_features": 133,
+  "evaluation": "hyperparameters selected on validation; final model trained on train only; test evaluated once",
+  "best_params": {
+    "n_estimators": "500",
+    "max_depth": "None",
+    "max_features": "0.3",
+    "min_samples_leaf": "1"
+  },
+  "n_samples": {
+    "train": 2308,
+    "validate": 462,
+    "test": 462
+  },
+  "train_macro_f1": 1.0,
+  "validation_macro_f1": 0.6679,
+  "test_macro_f1": 0.6467,
+  "test_accuracy": 0.6494,
+  "test_per_class": {
+    "Q1": {
+      "precision": 0.621,
+      "recall": 0.6638,
+      "f1-score": 0.6417
+    },
+    "Q2": {
+      "precision": 0.8417,
+      "recall": 0.8707,
+      "f1-score": 0.8559
+    },
+    "Q3": {
+      "precision": 0.566,
+      "recall": 0.5217,
+      "f1-score": 0.543
+    },
+    "Q4": {
+      "precision": 0.5536,
+      "recall": 0.5391,
+      "f1-score": 0.5463
+    }
+  },
+  "test_q3_q4_confusions": 70,
+  "saved_model": "models\\rf_B_base.joblib",
+  "seed": 42,
+  "elapsed_seconds": 44.6,
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "sklearn": "1.9.1",
+  "numpy": "2.5.4",
+  "pandas": "3.1.1"
+}

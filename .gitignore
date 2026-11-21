@@ -34,3 +34,6 @@ dist/
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Trained models
+models/

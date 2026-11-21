@@ -18,6 +18,7 @@ Status values: **decided** — supported by evidence and applied; **pending** �
 | D10 | Model selection on validation, single evaluation on test, macro-F1 as main metric | decided | `src/train_classic.py` (planned) |
 | D11 | Verify the downloaded archive against the Zenodo checksum | pending | `docs/data_check_report.md` |
 | D12 | Repeat protocol B with several random seeds | pending (proposed) | `notebooks/02_split_analysis.ipynb` §3–§5 |
+| D13 | Add tonal and harmonic (valence-related) features and evaluate models with and without them | decided | `notebooks/03_valence_features.ipynb` |
 
 ---
 
@@ -44,7 +45,7 @@ Status values: **decided** — supported by evidence and applied; **pending** �
 
 **Decision.** The `Quadrant` column of the metadata is the target. No relabelling, and no samples are removed for being close to a quadrant boundary.
 
-**Reasons.** The label equals the arousal and valence values thresholded at 0.5 for 100% of samples, so it is consistent with the continuous annotations. About 25% of samples lie within 0.05 of a boundary, with the largest share in Q2. Removing them would make the task artificially easier and the results incomparable with the literature; it is instead reported as a limitation.
+**Reasons.** The labels were assigned by the dataset authors from the majority of each song's AllMusic emotion tags and validated by human annotators; the arousal and valence values were computed separately from the same tags and were not manually validated (Louro et al., 2026). For 100% of samples the label agrees with the AV values when each axis is split at 0.5, the centre of the [0, 1] scale used in the released files (0 on the article's [-1, 1] scale), so labels and AV values are consistent. The 0.5 threshold is our choice for this check, not a parameter of the dataset. About 25% of samples lie within 0.05 of a boundary, with the largest share in Q2. Removing them would make the task artificially easier and the results incomparable with the literature; it is instead reported as a limitation.
 
 **Evidence.** `notebooks/01_eda.ipynb` §2; `results/eda/02_valence_arousal_scatter.png`, `results/eda/02_arousal_valence_histograms.png`; `results/eda/summary.json` (`label_av_agreement`, `share_near_boundary_0.05`).
 
@@ -125,3 +126,11 @@ The difference between the two scores measures how much of a model's performance
 **Status.** Pending: to be confirmed before training. The current split (seed 42) is kept as the first of the repetitions.
 
 **Evidence.** `notebooks/02_split_analysis.ipynb` §3–§5; `results/splits/02_genre_share_test_sets.png`, `results/splits/02_labels_test_sets.png`, `results/splits/02_feature_shift_test_sets.png`, `results/splits/02_split_comparison_summary.json`.
+
+## D13 — Tonal and harmonic features for valence
+
+**Decision.** 22 tonal and harmonic features are extracted by `src/features_tonal.py`: modality (major vs minor), key clarity, best major and minor key strength, modality and key clarity on 3-second segments (mean and standard deviation), the 6-dimensional tonal centroid (tonnetz, mean and standard deviation) and the harmonic change detection function (mean and standard deviation). Every classical model is trained twice, with the 133 librosa features and with the 133 + 22 features, under both protocols. The effect is judged on macro-F1 and on the number of Q3/Q4 confusions in the test confusion matrix. The 22 features are kept as one block; none is selected or removed on the basis of the results.
+
+**Reasons.** The 133 librosa features barely separate Q3 (sad) from Q4 (calm): best ε² ≈ 0.025, against ≈ 0.51 for high vs low arousal (`01_eda.ipynb` §8). The survey by Panda, Malheiro and Paiva (IEEE TAFFC, 2023) links major mode and consonant harmony to positive valence and minor mode and dissonant harmony to negative valence, and lists modality, key strength, key clarity, tonal centroid and harmonic change among the computational harmony features. On the training set, the new features point in the predicted direction (Q4 has the most major modality, Q2 the only minor-leaning mean) and the modality features carry information the existing features do not (strongest |ρ| with any existing feature below 0.3). On their own they do not separate Q3 from Q4 better than the existing features (best ε² ≈ 0.020), so their usefulness can only be judged by training with and without them.
+
+**Evidence.** `notebooks/03_valence_features.ipynb`; `results/valence/02_tonality_boxplots.png`, `results/valence/03_q3_vs_q4_top_features.png`, `results/valence/05_redundancy_with_existing.png`, `results/valence/summary.json`; extraction settings in `data/features/features_tonal.json`. Original sampling rate of the MERGE audio files checked on four files: 32,000 Hz, stereo, resampled to 22,050 Hz mono by both extraction scripts.

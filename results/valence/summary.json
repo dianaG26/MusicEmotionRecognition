@@ -1,0 +1,33 @@
+{
+  "quality": {
+    "songs with tonal features": 3232,
+    "missing values": 0,
+    "infinite values": 0,
+    "constant features": 0,
+    "songs in features_librosa.csv not in features_tonal.csv": 0
+  },
+  "modality_mean_by_quadrant": {
+    "Q1": 0.0572,
+    "Q2": -0.0272,
+    "Q3": 0.0658,
+    "Q4": 0.1077
+  },
+  "q3_q4_best_new": {
+    "feature": "modality_segments_mean",
+    "epsilon2": 0.0195
+  },
+  "q3_q4_best_existing": {
+    "feature": "mfcc_03_std",
+    "epsilon2": 0.025
+  },
+  "q1_q2_best_new": {
+    "feature": "tonnetz_03_std",
+    "epsilon2": 0.2178
+  },
+  "q1_q2_best_existing": {
+    "feature": "spectral_contrast_04_mean",
+    "epsilon2": 0.3966
+  },
+  "modality_max_corr_existing": 0.281,
+  "new_features_corr_over_0.9": 0
+}

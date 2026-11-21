@@ -1,0 +1,55 @@
+{
+  "model": "svm",
+  "protocol": "A",
+  "split": "tvt_70_15_15",
+  "feature_set": "base",
+  "feature_files": [
+    "features_librosa.csv"
+  ],
+  "n_features": 133,
+  "evaluation": "hyperparameters selected on validation; final model trained on train only; test evaluated once",
+  "best_params": {
+    "C": "1",
+    "gamma": "scale"
+  },
+  "n_samples": {
+    "train": 2264,
+    "validate": 484,
+    "test": 484
+  },
+  "train_macro_f1": 0.8578,
+  "validation_macro_f1": 0.6811,
+  "test_macro_f1": 0.6483,
+  "test_accuracy": 0.6529,
+  "test_per_class": {
+    "Q1": {
+      "precision": 0.6544,
+      "recall": 0.7355,
+      "f1-score": 0.6926
+    },
+    "Q2": {
+      "precision": 0.84,
+      "recall": 0.8678,
+      "f1-score": 0.8537
+    },
+    "Q3": {
+      "precision": 0.5537,
+      "recall": 0.5537,
+      "f1-score": 0.5537
+    },
+    "Q4": {
+      "precision": 0.5392,
+      "recall": 0.4545,
+      "f1-score": 0.4933
+    }
+  },
+  "test_q3_q4_confusions": 84,
+  "saved_model": "models\\svm_A_base.joblib",
+  "seed": 42,
+  "elapsed_seconds": 15.3,
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "sklearn": "1.9.1",
+  "numpy": "2.5.4",
+  "pandas": "3.1.1"
+}

@@ -1,0 +1,56 @@
+{
+  "model": "svm",
+  "protocol": "A",
+  "split": "tvt_70_15_15",
+  "feature_set": "tonal",
+  "feature_files": [
+    "features_librosa.csv",
+    "features_tonal.csv"
+  ],
+  "n_features": 155,
+  "evaluation": "hyperparameters selected on validation; final model trained on train only; test evaluated once",
+  "best_params": {
+    "C": "1",
+    "gamma": "scale"
+  },
+  "n_samples": {
+    "train": 2264,
+    "validate": 484,
+    "test": 484
+  },
+  "train_macro_f1": 0.8663,
+  "validation_macro_f1": 0.6772,
+  "test_macro_f1": 0.671,
+  "test_accuracy": 0.6736,
+  "test_per_class": {
+    "Q1": {
+      "precision": 0.6443,
+      "recall": 0.7934,
+      "f1-score": 0.7111
+    },
+    "Q2": {
+      "precision": 0.8696,
+      "recall": 0.8264,
+      "f1-score": 0.8475
+    },
+    "Q3": {
+      "precision": 0.6182,
+      "recall": 0.562,
+      "f1-score": 0.5887
+    },
+    "Q4": {
+      "precision": 0.5636,
+      "recall": 0.5124,
+      "f1-score": 0.5368
+    }
+  },
+  "test_q3_q4_confusions": 75,
+  "saved_model": "models\\svm_A_tonal.joblib",
+  "seed": 42,
+  "elapsed_seconds": 17.1,
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "sklearn": "1.9.1",
+  "numpy": "2.5.4",
+  "pandas": "3.1.1"
+}

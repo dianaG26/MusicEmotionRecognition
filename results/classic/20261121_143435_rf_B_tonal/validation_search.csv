@@ -1,0 +1,13 @@
+n_estimators,max_depth,max_features,min_samples_leaf,val_macro_f1
+500,None,sqrt,1,0.6448
+500,None,sqrt,2,0.657
+500,None,sqrt,4,0.661
+500,None,0.3,1,0.6569
+500,None,0.3,2,0.6501
+500,None,0.3,4,0.6608
+500,20,sqrt,1,0.6506
+500,20,sqrt,2,0.653
+500,20,sqrt,4,0.6615
+500,20,0.3,1,0.6615
+500,20,0.3,2,0.6502
+500,20,0.3,4,0.6521

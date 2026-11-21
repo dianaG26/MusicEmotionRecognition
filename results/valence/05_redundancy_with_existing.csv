@@ -1,0 +1,23 @@
+feature,max |ρ| with existing,most correlated existing feature
+tonnetz_05_mean,0.146,chroma_05_std
+key_clarity_segments_std,0.156,chroma_06_std
+tonnetz_06_mean,0.205,chroma_10_mean
+modality_segments_mean,0.255,spectral_contrast_04_mean
+modality_segments_std,0.26,spectral_contrast_03_mean
+modality,0.281,spectral_contrast_03_mean
+tonnetz_04_mean,0.291,chroma_03_std
+tonnetz_03_mean,0.299,chroma_08_std
+key_strength_minor,0.308,spectral_contrast_03_mean
+key_clarity_segments_mean,0.45,spectral_contrast_03_mean
+key_clarity,0.467,spectral_contrast_03_mean
+key_strength_major,0.47,spectral_contrast_03_mean
+tonnetz_01_mean,0.566,chroma_11_std
+tonnetz_02_mean,0.587,chroma_01_std
+tonnetz_01_std,0.686,spectral_contrast_03_mean
+tonnetz_02_std,0.693,spectral_contrast_03_mean
+harmonic_change_std,0.723,spectral_contrast_03_mean
+harmonic_change_mean,0.758,spectral_contrast_03_mean
+tonnetz_03_std,0.772,spectral_contrast_03_mean
+tonnetz_04_std,0.774,spectral_contrast_03_mean
+tonnetz_06_std,0.784,spectral_contrast_03_mean
+tonnetz_05_std,0.792,spectral_contrast_03_mean

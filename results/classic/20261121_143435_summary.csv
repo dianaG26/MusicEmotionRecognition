@@ -1,0 +1,9 @@
+model,protocol,feature_set,n_features,train_macro_f1,validation_macro_f1,test_macro_f1,test_accuracy,test_q3_q4_confusions,results
+svm,A,base,133,0.8578,0.6811,0.6483,0.6529,84,20261121_143435_svm_A_base
+rf,A,base,133,1.0,0.663,0.6343,0.6343,76,20261121_143435_rf_A_base
+svm,A,tonal,155,0.8663,0.6772,0.671,0.6736,75,20261121_143435_svm_A_tonal
+rf,A,tonal,155,0.9987,0.6887,0.6436,0.6446,75,20261121_143435_rf_A_tonal
+svm,B,base,133,1.0,0.6704,0.6433,0.645,71,20261121_143435_svm_B_base
+rf,B,base,133,1.0,0.6679,0.6467,0.6494,70,20261121_143435_rf_B_base
+svm,B,tonal,155,0.9229,0.6456,0.6499,0.6537,68,20261121_143435_svm_B_tonal
+rf,B,tonal,155,0.9766,0.6615,0.6675,0.671,67,20261121_143435_rf_B_tonal
