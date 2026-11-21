@@ -1,0 +1,84 @@
+{
+  "created": "2026-11-21T15:57:06",
+  "evaluation": "every choice made on the validation set; test set evaluated once per configuration",
+  "protocols": {
+    "A": "tvt_70_15_15",
+    "B42": "artist_70_15_15",
+    "B43": "artist_70_15_15_seed43",
+    "B44": "artist_70_15_15_seed44",
+    "B45": "artist_70_15_15_seed45",
+    "B46": "artist_70_15_15_seed46"
+  },
+  "models": [
+    "dummy",
+    "logreg",
+    "svm",
+    "rf",
+    "vote (majority of svm, rf, logreg)"
+  ],
+  "grids": {
+    "svm": {
+      "C": [
+        "0.1",
+        "1",
+        "10",
+        "100"
+      ],
+      "gamma": [
+        "scale",
+        "0.001",
+        "0.01",
+        "0.1"
+      ]
+    },
+    "rf": {
+      "n_estimators": [
+        "500"
+      ],
+      "max_depth": [
+        "None",
+        "20"
+      ],
+      "max_features": [
+        "sqrt",
+        "0.3"
+      ],
+      "min_samples_leaf": [
+        "1",
+        "2",
+        "4"
+      ]
+    },
+    "logreg": {
+      "C": [
+        "0.01",
+        "0.1",
+        "1",
+        "10"
+      ]
+    },
+    "dummy": {
+      "strategy": [
+        "stratified"
+      ]
+    }
+  },
+  "feature_groups": [
+    "mfcc",
+    "mfcc_delta",
+    "spectral_shape",
+    "spectral_contrast",
+    "energy_noise",
+    "chroma",
+    "rhythm",
+    "mode_key",
+    "tonnetz_harmonic_change"
+  ],
+  "seed": 42,
+  "elapsed_minutes": 14.4,
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "sklearn": "1.9.1",
+  "numpy": "2.5.4",
+  "pandas": "3.1.1"
+}

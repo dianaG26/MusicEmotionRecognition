@@ -11,14 +11,16 @@ Status values: **decided** — supported by evidence and applied; **pending** �
 | D03 | Use the quadrant labels as provided | decided | `notebooks/01_eda.ipynb` §2 |
 | D04 | Keep all clips, including the very short ones | decided | `notebooks/01_eda.ipynb` §3, §10 |
 | D05 | Keep duplicate recordings in the official protocol | decided | `notebooks/01_eda.ipynb` §4 |
-| D06 | Evaluate on the official split and on an artist-grouped split | decided (to confirm with coordinator) | `notebooks/01_eda.ipynb` §5, §6; `results/splits/artist_70_15_15_report.md` |
+| D06 | Evaluate on the official split and on an artist-grouped split | decided (approved by coordinator, 13 Nov) | `notebooks/01_eda.ipynb` §5, §6; `results/splits/artist_70_15_15_report.md` |
 | D07 | Standardise features for SVM, fitted on training data only | decided | `notebooks/01_eda.ipynb` §7 |
 | D08 | Keep all 133 features, without feature selection | decided | `notebooks/01_eda.ipynb` §8, §9, §11 |
 | D09 | Hand-crafted feature set and extraction settings | decided | `src/features.py`; `data/features/features_librosa.json` |
-| D10 | Model selection on validation, single evaluation on test, macro-F1 as main metric | decided | `src/train_classic.py` (planned) |
+| D10 | Model selection on validation, single evaluation on test, macro-F1 as main metric | decided | `src/train_classic.py`, `src/experiments_classic.py` |
 | D11 | Verify the downloaded archive against the Zenodo checksum | pending | `docs/data_check_report.md` |
-| D12 | Repeat protocol B with several random seeds | pending (proposed) | `notebooks/02_split_analysis.ipynb` §3–§5 |
-| D13 | Add tonal and harmonic (valence-related) features and evaluate models with and without them | decided | `notebooks/03_valence_features.ipynb` |
+| D12 | Repeat protocol B with five random seeds (42–46) | decided | `notebooks/02_split_analysis.ipynb` §3–§5; `notebooks/04_classic_experiments.ipynb` §2 |
+| D13 | Add tonal and harmonic (valence-related) features and evaluate models with and without them | decided | `notebooks/03_valence_features.ipynb`; `notebooks/04_classic_experiments.ipynb` §2, §7 |
+| D14 | Report chance level and a linear reference, and test differences with McNemar's test | decided | `notebooks/04_classic_experiments.ipynb` §1, §3 |
+| D15 | No ensemble; SVM and Random Forest kept as equal classical references, SVM used in the interface | decided | `notebooks/04_classic_experiments.ipynb` §3, §8, §11 |
 
 ---
 
@@ -107,7 +109,7 @@ The difference between the two scores measures how much of a model's performance
 
 **Reasons.** Using the test set for any choice would make the reported score optimistic. Macro-F1 weights every quadrant equally and is the metric used in the MERGE publications, which allows a direct comparison.
 
-**Evidence.** `src/train_classic.py` (planned); Louro et al., 2026.
+**Evidence.** `src/train_classic.py`, `src/experiments_classic.py`; Louro et al., 2026.
 
 ## D11 — Archive integrity check
 
@@ -119,13 +121,13 @@ The difference between the two scores measures how much of a model's performance
 
 ## D12 — Repeat protocol B with several random seeds
 
-**Proposed decision.** Protocol B is generated with several random seeds (for example five) and each model is evaluated on all of them; the result of protocol B is reported as the mean and standard deviation across seeds.
+**Decision.** Protocol B is generated with five random seeds (42, 43, 44, 45, 46) by `python src/splits.py --seed 42 43 44 45 46`. Seed 42 is the original split (`results/splits/artist_70_15_15/`); the others are saved as `results/splits/artist_70_15_15_seed<N>/`, each with its own verification report. Every model is evaluated on all five, and the result of protocol B is reported as the mean and standard deviation across seeds.
 
 **Reasons.** The test sets of the two protocols are comparable in class balance, emotion labels (Kolmogorov–Smirnov p ≈ 0.93 for arousal, 0.56 for valence), share of samples near a quadrant boundary (24% and 22%) and the ten most discriminative features (all |SMD| < 0.1). They differ, as intended, in artist overlap (66% against 0% of test songs with an artist seen in training). They also differ moderately in genre mix (chi-square p ≈ 0.006, total variation distance ≈ 0.14; B's test set has more Pop/Rock), because grouping by artist moves genres in blocks. With a single artist-grouped split, part of the difference between A and B could come from this particular genre mix. Averaging over several seeds averages over different genre mixes and also shows how much the result of protocol B varies from one split to another.
 
-**Status.** Pending: to be confirmed before training. The current split (seed 42) is kept as the first of the repetitions.
+**Outcome.** The standard deviation of test macro-F1 across the five seeds is between 0.005 and 0.014 for every classical model, so the ranking of the models does not depend on which artists are tested, and differences smaller than about 0.015 between two models cannot be interpreted from a single split.
 
-**Evidence.** `notebooks/02_split_analysis.ipynb` §3–§5; `results/splits/02_genre_share_test_sets.png`, `results/splits/02_labels_test_sets.png`, `results/splits/02_feature_shift_test_sets.png`, `results/splits/02_split_comparison_summary.json`.
+**Evidence.** `notebooks/04_classic_experiments.ipynb` §2; `results/experiments/runs.csv`, `results/experiments/figures/02_seed_stability.png`; `notebooks/02_split_analysis.ipynb` §3–§5; `results/splits/02_genre_share_test_sets.png`, `results/splits/02_labels_test_sets.png`, `results/splits/02_feature_shift_test_sets.png`, `results/splits/02_split_comparison_summary.json`.
 
 ## D13 — Tonal and harmonic features for valence
 
@@ -134,3 +136,23 @@ The difference between the two scores measures how much of a model's performance
 **Reasons.** The 133 librosa features barely separate Q3 (sad) from Q4 (calm): best ε² ≈ 0.025, against ≈ 0.51 for high vs low arousal (`01_eda.ipynb` §8). The survey by Panda, Malheiro and Paiva (IEEE TAFFC, 2023) links major mode and consonant harmony to positive valence and minor mode and dissonant harmony to negative valence, and lists modality, key strength, key clarity, tonal centroid and harmonic change among the computational harmony features. On the training set, the new features point in the predicted direction (Q4 has the most major modality, Q2 the only minor-leaning mean) and the modality features carry information the existing features do not (strongest |ρ| with any existing feature below 0.3). On their own they do not separate Q3 from Q4 better than the existing features (best ε² ≈ 0.020), so their usefulness can only be judged by training with and without them.
 
 **Evidence.** `notebooks/03_valence_features.ipynb`; `results/valence/02_tonality_boxplots.png`, `results/valence/03_q3_vs_q4_top_features.png`, `results/valence/05_redundancy_with_existing.png`, `results/valence/summary.json`; extraction settings in `data/features/features_tonal.json`. Original sampling rate of the MERGE audio files checked on four files: 32,000 Hz, stereo, resampled to 22,050 Hz mono by both extraction scripts.
+
+**Outcome.** With the same test songs, adding the 22 features improves the SVM on 5 of 5 artist splits (mean +0.017) and the Random Forest on 4 of 5 (mean +0.013), and both on the official split. The gain is consistent but too small to be significant on any single test set (McNemar's test), and the ablation shows that it depends on the model. All final classical models therefore use the 155 features. Evidence: `notebooks/04_classic_experiments.ipynb` §2, §3, §7; `results/experiments/figures/02_tonal_minus_base_by_seed.csv`, `results/experiments/figures/07_ablation.csv`.
+
+## D14 — Reference models and statistical testing
+
+**Decision.** Every comparison includes two reference models: a chance-level classifier (`DummyClassifier`, stratified) and multinomial logistic regression on standardised features. Two models evaluated on the same test songs are compared with the exact McNemar test, separately on each of the six test sets (protocol A and five protocol-B seeds). A difference is called significant only if it is significant on several test sets in the same direction.
+
+**Reasons.** A score is only meaningful relative to what is trivially achievable (chance) and what a simple model achieves (linear boundary). Differences of 0.01–0.02 in macro-F1 between models are of the same size as the variation between splits (D12), so they must be tested rather than read off a table. McNemar's test uses the songs on which two models disagree, needs no assumption about score distributions and is the standard test for comparing two classifiers on one test set (Dietterich, *Approximate Statistical Tests for Comparing Supervised Classification Learning Algorithms*, Neural Computation, 1998).
+
+**Outcome.** Chance level is ≈ 0.26 macro-F1 on protocol B; logistic regression reaches ≈ 0.65 and SVM, Random Forest and the vote ≈ 0.66. No difference between SVM and Random Forest is significant on any test set.
+
+**Evidence.** `src/experiments_classic.py`; `notebooks/04_classic_experiments.ipynb` §1, §3; `results/experiments/figures/01_main_table.csv`, `results/experiments/figures/03_mcnemar.csv`, `results/experiments/figures/03_mcnemar_summary.csv`.
+
+## D15 — Final classical models: no ensemble, SVM in the interface
+
+**Decision.** A majority vote of SVM, Random Forest and logistic regression was evaluated and is not used. SVM and Random Forest are both reported as classical references for the CNN. The SVM is the classical model offered in the interface.
+
+**Reasons.** On validation, where the choice must be made, the vote beats the best single model in only 6 of 12 configurations, and its test scores are similar to those of the best single model. SVM and Random Forest are statistically indistinguishable (D14), so neither can be called better; the SVM is chosen for the interface because its saved model is about ten times smaller (≈ 2 MB against ≈ 28 MB) and trains in under a second, with the same accuracy.
+
+**Evidence.** `notebooks/04_classic_experiments.ipynb` §8, §11; `results/experiments/ensemble_validation.csv`, `results/experiments/figures/08_ensemble_validation.csv`, `results/experiments/figures/11_cost.csv`.
