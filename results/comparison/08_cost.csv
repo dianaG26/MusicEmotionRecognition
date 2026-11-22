@@ -1,0 +1,4 @@
+,parameters_or_inputs,train_seconds_mean,model_MB
+svm,155 features,0.51,2.44
+rf,155 features,3.88,28.56
+cnn,"294,228 weights",7243.84,1.2

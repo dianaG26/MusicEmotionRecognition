@@ -1,0 +1,5 @@
+other,splits,significant,cnn_wins_more
+logreg,5,2,5
+rf,5,1,4
+svm,5,2,5
+vote,5,1,4

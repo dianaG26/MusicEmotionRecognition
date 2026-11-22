@@ -1,0 +1,3 @@
+,"published (Louro et al., 2026)",this work
+hand-crafted features + SVM,68.52,67.1
+deep learning (theirs: wav2vec2 + DNN; ours: CNN on Mel-spectrograms),66.75,68.16

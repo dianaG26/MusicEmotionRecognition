@@ -1,0 +1,6 @@
+config,protocol,parameters,best_epoch,train_macro_f1,validation_macro_f1,test_macro_f1,test_accuracy,test_q3_q4_confusions,train_seconds,results
+small,B42,294228,28,0.7651,0.7247,0.7012,0.7078,72,6800.7,20261122_122104_cnn_small_B42
+small,B43,294228,51,0.8039,0.7427,0.6856,0.6926,78,9687.2,20261122_122104_cnn_small_B43
+small,B44,294228,34,0.7876,0.7337,0.6655,0.6688,75,6271.0,20261122_122104_cnn_small_B44
+small,B45,294228,22,0.7386,0.7051,0.708,0.7078,79,4530.4,20261122_122104_cnn_small_B45
+small,B46,294228,40,0.8005,0.7162,0.7091,0.7143,74,8929.9,20261122_122104_cnn_small_B46

@@ -1,0 +1,10 @@
+,mean,mean,size,size
+model,cnn,svm,cnn,svm
+Genre,,,,
+Other,0.274,0.22,368,368
+Country,0.441,0.464,220,220
+Pop/Rock,0.365,0.243,189,189
+Jazz,0.351,0.377,151,151
+Blues,0.193,0.257,109,109
+R&B,0.273,0.197,66,66
+Electronic,0.38,0.4,50,50

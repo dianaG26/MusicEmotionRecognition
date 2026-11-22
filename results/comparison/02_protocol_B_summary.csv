@@ -1,0 +1,7 @@
+model,test_macro_f1_mean,test_macro_f1_sd,accuracy_mean,q3_q4_confusions_mean,splits
+dummy,0.2587,0.0095,0.2597,57.8,5
+logreg,0.6522,0.008,0.6563,71.2,5
+svm,0.6619,0.013,0.6675,69.4,5
+rf,0.663,0.0139,0.6688,68.8,5
+vote,0.6642,0.0069,0.6701,68.6,5
+cnn,0.6939,0.0184,0.6983,75.6,5

@@ -1,0 +1,5 @@
+other,only_cnn_correct,only_other_correct,p_value
+logreg,361,264,0.0001
+rf,326,258,0.0055
+svm,339,268,0.0045
+vote,324,259,0.008

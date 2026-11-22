@@ -1,0 +1,54 @@
+{
+  "checks": {
+    "array shape": "(3232, 128, 1292)",
+    "array dtype": "float16",
+    "rows in index": 3232,
+    "rows computed without error": 3232,
+    "songs per quadrant": {
+      "Q1": 808,
+      "Q2": 808,
+      "Q3": 808,
+      "Q4": 808
+    },
+    "file size (MB)": 1069.0,
+    "settings": {
+      "sample_rate": 22050,
+      "n_fft": 2048,
+      "hop_length": 512,
+      "n_mels": 128,
+      "fmax": 11025,
+      "db_reference": 1.0,
+      "dtype": "float16"
+    },
+    "seconds per frame": 0.0232,
+    "value range (dB)": [
+      -100.0,
+      41.3
+    ],
+    "mean value (dB)": -13.4,
+    "settings in the file match the script": true,
+    "errors file present": false
+  },
+  "row_check_max_difference_dB": 0.0312,
+  "padded_clips": {
+    "under_29_s": 72,
+    "29_to_29.95_s": 999,
+    "max_padding_frames_for_29_s_or_more": 42
+  },
+  "median_loudness_dB": {
+    "Q1": -9.300000190734863,
+    "Q2": -3.5999999046325684,
+    "Q3": -17.600000381469727,
+    "Q4": -17.5
+  },
+  "q3_minus_q4": {
+    "max_abs_dB": 3.19,
+    "bands_with_ci_excluding_0": 68,
+    "mean_dB": 0.44
+  },
+  "arousal_difference": {
+    "max_abs_dB": 15.56,
+    "bands_with_ci_excluding_0": 128,
+    "mean_dB": 10.75
+  }
+}

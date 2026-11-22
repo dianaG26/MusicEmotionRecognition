@@ -1,0 +1,48 @@
+{
+  "cnn_B_splits_available": [
+    "B42",
+    "B43",
+    "B44",
+    "B45",
+    "B46"
+  ],
+  "B_mean": {
+    "dummy": 0.2587,
+    "logreg": 0.6522,
+    "svm": 0.6619,
+    "rf": 0.663,
+    "vote": 0.6642,
+    "cnn": 0.6939
+  },
+  "B_sd": {
+    "dummy": 0.0095,
+    "logreg": 0.008,
+    "svm": 0.013,
+    "rf": 0.0139,
+    "vote": 0.0069,
+    "cnn": 0.0184
+  },
+  "cnn_minus": {
+    "logreg": 0.0417,
+    "svm": 0.032,
+    "rf": 0.0308,
+    "vote": 0.0297
+  },
+  "mcnemar_B_significant": {
+    "logreg": 2,
+    "rf": 1,
+    "svm": 2,
+    "vote": 1
+  },
+  "mcnemar_pooled_p": {
+    "logreg": 0.0001,
+    "rf": 0.0055,
+    "svm": 0.0045,
+    "vote": 0.008
+  },
+  "q3q4_rate": {
+    "cnn": 0.328,
+    "svm": 0.301
+  },
+  "only_one_correct_share": 0.263
+}

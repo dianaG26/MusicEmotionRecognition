@@ -1,0 +1,2 @@
+config,protocol,parameters,best_epoch,train_macro_f1,validation_macro_f1,test_macro_f1,test_accuracy,test_q3_q4_confusions,train_seconds,results
+small,A,294228,60,0.8439,0.7233,0.6816,0.686,86,8126.5,20261121_193756_cnn_small_A

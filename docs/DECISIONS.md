@@ -21,6 +21,7 @@ Status values: **decided** — supported by evidence and applied; **pending** �
 | D13 | Add tonal and harmonic (valence-related) features and evaluate models with and without them | decided | `notebooks/03_valence_features.ipynb`; `notebooks/04_classic_experiments.ipynb` §2, §7 |
 | D14 | Report chance level and a linear reference, and test differences with McNemar's test | decided | `notebooks/04_classic_experiments.ipynb` §1, §3 |
 | D15 | No ensemble; SVM and Random Forest kept as equal classical references, SVM used in the interface | decided | `notebooks/04_classic_experiments.ipynb` §3, §8, §11 |
+| D16 | Mel-spectrogram settings and storage for the CNN | decided (storage format to confirm with coordinator) | `src/spectrograms.py`; `data/spectrograms/mel128.json` |
 
 ---
 
@@ -156,3 +157,17 @@ The difference between the two scores measures how much of a model's performance
 **Reasons.** On validation, where the choice must be made, the vote beats the best single model in only 6 of 12 configurations, and its test scores are similar to those of the best single model. SVM and Random Forest are statistically indistinguishable (D14), so neither can be called better; the SVM is chosen for the interface because its saved model is about ten times smaller (≈ 2 MB against ≈ 28 MB) and trains in under a second, with the same accuracy.
 
 **Evidence.** `notebooks/04_classic_experiments.ipynb` §8, §11; `results/experiments/ensemble_validation.csv`, `results/experiments/figures/08_ensemble_validation.csv`, `results/experiments/figures/11_cost.csv`.
+
+## D16 — Mel-spectrograms for the CNN
+
+**Decision.** `src/spectrograms.py` computes one log-Mel spectrogram per clip and stores all of them once, so that every CNN experiment reads the same inputs:
+- audio loaded exactly as for the hand-crafted features (D09): 22,050 Hz, mono, first 30 s; clips shorter than 30 s are padded with silence at the end (D04);
+- STFT with `n_fft` 2048 and hop 512 (as in D09), 128 Mel bands from 0 to 11,025 Hz, power spectrogram converted to decibels relative to a fixed reference (1.0), floor −100 dB, no per-clip normalisation;
+- result: 128 bands × 1,292 frames per clip (≈ 23 ms per frame), stored as `float16` in one array `data/spectrograms/mel128.npy` (3,232 × 128 × 1,292, ≈ 1.07 GB), with `mel128_index.csv` mapping each row to its song and quadrant and `mel128.json` recording the settings, versions and value range;
+- optionally (`--png`) every spectrogram is also saved as an image in `data/spectrograms/png/` for visual inspection.
+
+**Reasons.** Using the same sampling rate and STFT as the hand-crafted features means the CNN and the classical models see the same audio, so the comparison between them is about the model and the representation, not about preprocessing. 128 Mel bands is the usual resolution for music CNNs on spectrograms. A fixed dB reference keeps loudness differences between songs, which relate to arousal; normalising each clip to its own maximum would remove them. Input standardisation is done later, in training, with statistics computed on the training set only (as in D07). `float16` halves the storage; its resolution at these magnitudes (about 0.03 dB) is far below any audible or learnable difference. Storing all spectrograms once avoids recomputing them for every epoch and every experiment, and the saved arrays (and images) can be shown to the coordinator, who asked for the inputs to be saved.
+
+**Status.** Settings decided; whether the coordinator also wants the images for all clips or only examples is to be confirmed.
+
+**Evidence.** `src/spectrograms.py`; `data/spectrograms/mel128.json`; tested on six clips, including the two shortest (4.8 s and 10.1 s), before the full run.

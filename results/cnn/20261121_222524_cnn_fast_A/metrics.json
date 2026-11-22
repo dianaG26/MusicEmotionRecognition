@@ -1,0 +1,64 @@
+{
+  "model": "cnn",
+  "config": "fast",
+  "protocol": "A",
+  "split": "tvt_70_15_15",
+  "evaluation": "epoch selected on validation macro-F1 (early stopping); test evaluated once with the selected epoch",
+  "config_values": {
+    "channels": [
+      16,
+      32,
+      64,
+      128
+    ],
+    "convs_per_block": 1,
+    "dropout": 0.3,
+    "crop_seconds": 10,
+    "spec_augment": false,
+    "lr": 0.001,
+    "weight_decay": 0.0001
+  },
+  "training": {
+    "batch_size": 32,
+    "max_epochs": 60,
+    "patience": 12,
+    "lr_patience": 4,
+    "lr_factor": 0.5,
+    "eval_crop_hop_seconds": 5,
+    "freq_masks": 2,
+    "freq_mask_max": 16,
+    "time_masks": 2,
+    "time_mask_max": 40,
+    "gain_db": 6
+  },
+  "parameters": 97908,
+  "n_samples": {
+    "train": 2264,
+    "validate": 484,
+    "test": 484
+  },
+  "best_epoch": 57,
+  "epochs_run": 60,
+  "train_macro_f1": 0.7586,
+  "validation_macro_f1": 0.7017,
+  "test_macro_f1": 0.6859,
+  "test_accuracy": 0.686,
+  "test_f1_per_class": {
+    "Q1": 0.7581,
+    "Q2": 0.8861,
+    "Q3": 0.5737,
+    "Q4": 0.5259
+  },
+  "test_q3_q4_confusions": 86,
+  "saved_model": "models\\cnn_fast_A.pt",
+  "model_mb": 0.41,
+  "seed": 42,
+  "load_seconds": 14.8,
+  "train_seconds": 3905.8,
+  "seconds_per_epoch": 65.1,
+  "threads": 8,
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "torch": "2.15.0+cpu",
+  "numpy": "2.5.4"
+}

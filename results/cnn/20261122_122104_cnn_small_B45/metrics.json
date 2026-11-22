@@ -1,0 +1,64 @@
+{
+  "model": "cnn",
+  "config": "small",
+  "protocol": "B45",
+  "split": "artist_70_15_15_seed45",
+  "evaluation": "epoch selected on validation macro-F1 (early stopping); test evaluated once with the selected epoch",
+  "config_values": {
+    "channels": [
+      16,
+      32,
+      64,
+      128
+    ],
+    "convs_per_block": 2,
+    "dropout": 0.3,
+    "crop_seconds": 10,
+    "spec_augment": false,
+    "lr": 0.001,
+    "weight_decay": 0.0001
+  },
+  "training": {
+    "batch_size": 32,
+    "max_epochs": 60,
+    "patience": 12,
+    "lr_patience": 4,
+    "lr_factor": 0.5,
+    "eval_crop_hop_seconds": 5,
+    "freq_masks": 2,
+    "freq_mask_max": 16,
+    "time_masks": 2,
+    "time_mask_max": 40,
+    "gain_db": 6
+  },
+  "parameters": 294228,
+  "n_samples": {
+    "train": 2308,
+    "validate": 462,
+    "test": 462
+  },
+  "best_epoch": 22,
+  "epochs_run": 34,
+  "train_macro_f1": 0.7386,
+  "validation_macro_f1": 0.7051,
+  "test_macro_f1": 0.708,
+  "test_accuracy": 0.7078,
+  "test_f1_per_class": {
+    "Q1": 0.7788,
+    "Q2": 0.9043,
+    "Q3": 0.5472,
+    "Q4": 0.6016
+  },
+  "test_q3_q4_confusions": 79,
+  "saved_model": "models\\cnn_small_B45.pt",
+  "model_mb": 1.2,
+  "seed": 42,
+  "load_seconds": 14.2,
+  "train_seconds": 4530.4,
+  "seconds_per_epoch": 133.2,
+  "threads": 8,
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "torch": "2.15.0+cpu",
+  "numpy": "2.5.4"
+}

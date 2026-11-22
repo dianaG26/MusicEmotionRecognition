@@ -113,7 +113,7 @@ def run(name, protocol, feature_set, stamp):
     X = {p: data.loc[ids, feature_cols].to_numpy() for p, ids in parts.items()}
     y = {p: data.loc[ids, "Quadrant"].to_numpy() for p, ids in parts.items()}
     tag = f"{name}_{protocol}_{feature_set}"
-    print(f"\n=== {tag}: {len(feature_cols)} features | train {len(y['train'])}, validate {len(y['validate'])}, test {len(y['test'])}")
+    print(f"\n{tag}: {len(feature_cols)} features | train {len(y['train'])}, validate {len(y['validate'])}, test {len(y['test'])}")
 
     grid = GRIDS[name]
     keys = list(grid)

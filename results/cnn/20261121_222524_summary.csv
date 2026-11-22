@@ -1,0 +1,3 @@
+config,protocol,parameters,best_epoch,train_macro_f1,validation_macro_f1,test_macro_f1,test_accuracy,test_q3_q4_confusions,train_seconds,results
+fast,A,97908,57,0.7586,0.7017,0.6859,0.686,86,3905.8,20261121_222524_cnn_fast_A
+fast_aug,A,97908,36,0.7344,0.6883,0.6685,0.6715,90,3173.3,20261121_222524_cnn_fast_aug_A
