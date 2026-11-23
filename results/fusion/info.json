@@ -1,0 +1,31 @@
+{
+  "created": "2026-11-22T23:50:02",
+  "evaluation": "number of crops and fusion weight chosen on each split's validation set; test evaluated once",
+  "cnn": "cnn_small_<protocol>.pt from src/train_cnn.py, 10-second crops, probabilities averaged over crops",
+  "hops_seconds_tried": [
+    5.0,
+    2.5
+  ],
+  "svm": "SVM with the hyperparameters chosen in src/experiments_classic.py (tonal features), probabilities by sigmoid calibration with 5-fold cross-validation on the training set",
+  "fusion": "weight_cnn * p_cnn + (1 - weight_cnn) * p_svm; ties broken towards the higher CNN weight",
+  "weights_tried": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "elapsed_minutes": 22.7,
+  "seed": 42,
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "torch": "2.15.0+cpu",
+  "sklearn": "1.9.1",
+  "numpy": "2.5.4"
+}

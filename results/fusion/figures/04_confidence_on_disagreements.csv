@@ -1,0 +1,6 @@
+protocol,only_cnn_right,cnn_more_confident_when_only_cnn_right,only_svm_right,svm_more_confident_when_only_svm_right,mean_top_probability_cnn,mean_top_probability_svm
+B42,73,0.37,49,0.755,0.685,0.635
+B43,61,0.459,60,0.633,0.726,0.634
+B44,62,0.371,61,0.787,0.678,0.622
+B45,65,0.246,46,0.913,0.638,0.634
+B46,73,0.425,52,0.673,0.688,0.636

@@ -22,6 +22,8 @@ Status values: **decided** — supported by evidence and applied; **pending** �
 | D14 | Report chance level and a linear reference, and test differences with McNemar's test | decided | `notebooks/04_classic_experiments.ipynb` §1, §3 |
 | D15 | No ensemble; SVM and Random Forest kept as equal classical references, SVM used in the interface | decided | `notebooks/04_classic_experiments.ipynb` §3, §8, §11 |
 | D16 | Mel-spectrogram settings and storage for the CNN | decided (storage format to confirm with coordinator) | `src/spectrograms.py`; `data/spectrograms/mel128.json` |
+| D17 | CNN architecture, training procedure and choice of variant on validation | decided | `src/train_cnn.py`; `results/cnn/`; `notebooks/06_cnn_vs_classic.ipynb` |
+| D18 | Final deep model: CNN alone, 6 crops; fusion with the SVM and more crops tried and not adopted | decided | `src/fusion.py`; `notebooks/07_fusion.ipynb` |
 
 ---
 
@@ -171,3 +173,44 @@ The difference between the two scores measures how much of a model's performance
 **Status.** Settings decided; whether the coordinator also wants the images for all clips or only examples is to be confirmed.
 
 **Evidence.** `src/spectrograms.py`; `data/spectrograms/mel128.json`; tested on six clips, including the two shortest (4.8 s and 10.1 s), before the full run.
+
+## D17 — CNN: architecture, training and choice of variant
+
+**Decision.** The deep-learning model is a small convolutional network trained from scratch on the Mel-spectrograms of D16 (`src/train_cnn.py`):
+- four blocks of 3×3 convolutions with batch normalisation and ReLU, each followed by 2×2 max-pooling (16, 32, 64, 128 channels), then global average pooling, dropout 0.3 and a linear layer to the four quadrants;
+- input standardised per Mel band with the mean and standard deviation of the training set only;
+- training on random 10-second crops of each clip (a new crop every epoch), cross-entropy loss, AdamW (learning rate 0.001, weight decay 0.0001), batch size 32;
+- after each epoch, validation macro-F1 is computed on the whole clip (average of the class probabilities of five overlapping 10-second crops); the learning rate is halved after 4 epochs without improvement, training stops after 12 epochs without improvement or at 60 epochs, and the weights of the best validation epoch are kept;
+- the test set is evaluated once, with those weights.
+
+Three variants were trained on protocol A and compared **on validation**:
+
+| variant | convolutions per block | augmentation | parameters | best validation macro-F1 | seconds per epoch |
+|---|---|---|---|---|---|
+| `small` | 2 | none | 294,228 | 0.723 | 135 |
+| `fast` | 1 | none | 97,908 | 0.702 | 65 |
+| `fast_aug` | 1 | frequency and time masking, ±6 dB gain | 97,908 | 0.688 | 66 |
+
+`small` has the highest validation score and is the variant evaluated on the five artist-grouped splits (D12) and compared with the classical models.
+
+**Reasons.** The audio clips are short (30 s) and the dataset small (2,264 training clips), so a compact network trained from scratch is appropriate and can be trained on the laptop's CPU. Random crops act as data augmentation and let the network see different parts of each song; averaging several crops at evaluation uses the whole clip, as the classical features do. Selecting the epoch and the variant on validation keeps the test set untouched, as in D10. Frequency/time masking and gain changes did not improve validation macro-F1 for the smaller network, so augmentation beyond random cropping is not used. Validation scores fluctuate by several hundredths between epochs, so differences of about 0.02 between variants are reported as indicative, not conclusive; their test scores (0.682, 0.686, 0.669) were not used for the choice.
+
+**Outcome on unseen artists.** On the five artist-grouped splits the `small` CNN reaches a test macro-F1 of 0.694 ± 0.018, against 0.662 ± 0.013 for the SVM and 0.663 ± 0.014 for the Random Forest. It beats the SVM on all five splits (+0.032 on average) and the Random Forest on four; McNemar's test is significant on two of five splits against the SVM and, pooled over the five splits, p = 0.0045 against the SVM and p = 0.0055 against the Random Forest. The gain comes from the high-arousal quadrants; the sad/calm confusion is not reduced.
+
+**Evidence.** `src/train_cnn.py`; `results/cnn/20261121_193756_cnn_small_A/`, `results/cnn/20261121_222524_cnn_fast_A/`, `results/cnn/20261121_222524_cnn_fast_aug_A/`, `results/cnn/20261122_122104_cnn_small_B42/` … `_B46/` (`history.csv`, `metrics.json`); `notebooks/06_cnn_vs_classic.ipynb`; `results/comparison/`.
+
+## D18 — Final deep-learning model: CNN alone; fusion and more crops not adopted
+
+**Decision.** The final deep-learning model is the `small` CNN of D17, evaluated by averaging its probabilities over six 10-second crops per clip. Two extensions were tested and are not used: evaluating the CNN on nine crops instead of six, and combining its probabilities with those of the SVM.
+
+**What was tested.** `src/fusion.py` reuses the saved CNNs and the SVM hyperparameters of `experiments_classic.py` and trains nothing new. For each split (A and B42–B46):
+- the CNN is evaluated with crops every 5 s (6 crops) and every 2.5 s (9 crops);
+- the SVM's decision scores are turned into class probabilities by sigmoid calibration fitted with 5-fold cross-validation on the training set;
+- the fusion is `w · p_CNN + (1 − w) · p_SVM`, with `w` from 0 to 1 in steps of 0.1;
+- the number of crops and `w` are chosen on the validation set, ties going to fewer crops and to the CNN alone; the test set is evaluated once. A fixed 50/50 fusion is also reported.
+
+**Results.** More crops were preferred only on B42 and changed the mean test macro-F1 on protocol B from 0.6939 to 0.6942. The weighted fusion was chosen on two of five artist splits (`w` = 0.8 and 0.9) and gave 0.699 ± 0.024 against 0.694 ± 0.018 for the CNN alone, a difference that is not significant (pooled McNemar p = 0.17). The 50/50 fusion gave 0.690 ± 0.008: slightly lower on average, but with less than half the variation between splits and fewer sad/calm confusions.
+
+**Reasons.** Neither extension gives a gain that is significant or consistent across splits, so the simpler model is kept: it is easier to explain, and each prediction of a fused model would need both the spectrogram and the 155 hand-crafted features and two models instead of one. The complementarity of the two models (26 % of songs classified correctly by only one of them, D17 outcome) does not translate into a gain because, when only the CNN is right, the SVM is usually the more confident of the two, so a fusion that rescues the SVM's correct answers loses part of the CNN's. The stability of the 50/50 fusion is reported as a direction for future work.
+
+**Evidence.** `src/fusion.py`; `results/fusion/` (`runs.csv`, `validation_grid.csv`, `test_predictions.csv`); `notebooks/07_fusion.ipynb`.

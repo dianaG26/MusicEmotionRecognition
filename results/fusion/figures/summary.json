@@ -1,0 +1,38 @@
+{
+  "weights_chosen": {
+    "A": 1.0,
+    "B42": 1.0,
+    "B43": 1.0,
+    "B44": 1.0,
+    "B45": 0.8,
+    "B46": 0.9
+  },
+  "B_mean": {
+    "svm_calibrated": 0.6646,
+    "cnn": 0.6939,
+    "cnn_tta": 0.6942,
+    "fusion": 0.6986,
+    "fusion_equal": 0.6902
+  },
+  "B_sd": {
+    "svm_calibrated": 0.0115,
+    "cnn": 0.0184,
+    "cnn_tta": 0.0186,
+    "fusion": 0.0235,
+    "fusion_equal": 0.0081
+  },
+  "pooled_p": {
+    "cnn_tta vs cnn": 1.0,
+    "fusion vs cnn": 0.1686,
+    "fusion vs svm_calibrated": 0.0011,
+    "fusion_equal vs cnn": 0.8036
+  },
+  "confidence": {
+    "only_cnn_right": 66.8,
+    "cnn_more_confident_when_only_cnn_right": 0.374,
+    "only_svm_right": 53.6,
+    "svm_more_confident_when_only_svm_right": 0.752,
+    "mean_top_probability_cnn": 0.683,
+    "mean_top_probability_svm": 0.632
+  }
+}

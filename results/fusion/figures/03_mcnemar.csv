@@ -1,0 +1,25 @@
+protocol,comparison,only_left_correct,only_right_correct,p_value
+A,fusion vs cnn,0,0,1.0
+A,fusion_equal vs cnn,35,35,1.0
+A,cnn_tta vs cnn,0,0,1.0
+A,fusion vs svm_calibrated,64,59,0.7185
+B42,fusion vs cnn,8,7,1.0
+B42,fusion_equal vs cnn,38,47,0.3857
+B42,cnn_tta vs cnn,8,7,1.0
+B42,fusion vs svm_calibrated,75,50,0.0314
+B43,fusion vs cnn,0,0,1.0
+B43,fusion_equal vs cnn,39,32,0.4767
+B43,cnn_tta vs cnn,0,0,1.0
+B43,fusion vs svm_calibrated,61,60,1.0
+B44,fusion vs cnn,0,0,1.0
+B44,fusion_equal vs cnn,45,36,0.3742
+B44,cnn_tta vs cnn,0,0,1.0
+B44,fusion vs svm_calibrated,62,61,1.0
+B45,fusion vs cnn,23,15,0.2559
+B45,fusion_equal vs cnn,42,46,0.7493
+B45,cnn_tta vs cnn,0,0,1.0
+B45,fusion vs svm_calibrated,52,25,0.0028
+B46,fusion vs cnn,7,4,0.5488
+B46,fusion_equal vs cnn,35,44,0.3682
+B46,cnn_tta vs cnn,0,0,1.0
+B46,fusion vs svm_calibrated,70,46,0.0323
