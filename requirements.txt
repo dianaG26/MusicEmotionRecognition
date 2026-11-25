@@ -78,6 +78,7 @@ numpy==2.5.4
 packaging==26.3
 pandas==3.1.1
 pandocfilters==1.5.1
+panns-inference==0.1.1
 parso==0.8.7
 pillow==13.0.0
 platformdirs==4.14.5
@@ -114,6 +115,7 @@ terminado==0.18.1
 threadpoolctl==3.8.0
 tinycss2==1.5.1
 torch==2.15.0+cpu
+torchlibrosa==0.1.0
 tornado==6.6.1
 traitlets==5.16.1
 typing_extensions==4.16.0

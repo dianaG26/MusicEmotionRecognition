@@ -1,0 +1,7 @@
+protocol,params,weight_cnn,val_macro_f1,test_macro_f1
+A,"cnn_fusion_panns_tonal: {""C"": ""1"", ""gamma"": ""scale""}",0.3,0.7473828304798308,0.7261617081162457
+B42,"cnn_fusion_panns_tonal: {""C"": ""1"", ""gamma"": ""0.001""}",0.4,0.7592938753202378,0.7048440089384456
+B43,"cnn_fusion_panns_tonal: {""C"": ""1"", ""gamma"": ""scale""}",0.4,0.7622793488410889,0.7205860907197834
+B44,"cnn_fusion_panns_tonal: {""C"": ""1"", ""gamma"": ""scale""}",0.8,0.7539138856289774,0.6816001654939134
+B45,"cnn_fusion_panns_tonal: {""C"": ""10"", ""gamma"": ""0.0001""}",0.7,0.7473761848566752,0.7457247268999097
+B46,"cnn_fusion_panns_tonal: {""C"": ""1"", ""gamma"": ""scale""}",0.3,0.7635380580293052,0.7115660401971475

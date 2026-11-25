@@ -24,6 +24,7 @@ Status values: **decided** — supported by evidence and applied; **pending** �
 | D16 | Mel-spectrogram settings and storage for the CNN | decided (storage format to confirm with coordinator) | `src/spectrograms.py`; `data/spectrograms/mel128.json` |
 | D17 | CNN architecture, training procedure and choice of variant on validation | decided | `src/train_cnn.py`; `results/cnn/`; `notebooks/06_cnn_vs_classic.ipynb` |
 | D18 | Final deep model: CNN alone, 6 crops; fusion with the SVM and more crops tried and not adopted | decided | `src/fusion.py`; `notebooks/07_fusion.ipynb` |
+| D19 | Sad vs calm: two-stage model and pretrained PANNs embeddings; final model = CNN fused with an SVM on PANNs + hand-crafted features | decided | `src/two_stage.py`; `src/panns_embeddings.py`; `src/pretrained_experiments.py`; `notebooks/08_sad_vs_calm.ipynb` |
 
 ---
 
@@ -214,3 +215,27 @@ Three variants were trained on protocol A and compared **on validation**:
 **Reasons.** Neither extension gives a gain that is significant or consistent across splits, so the simpler model is kept: it is easier to explain, and each prediction of a fused model would need both the spectrogram and the 155 hand-crafted features and two models instead of one. The complementarity of the two models (26 % of songs classified correctly by only one of them, D17 outcome) does not translate into a gain because, when only the CNN is right, the SVM is usually the more confident of the two, so a fusion that rescues the SVM's correct answers loses part of the CNN's. The stability of the 50/50 fusion is reported as a direction for future work.
 
 **Evidence.** `src/fusion.py`; `results/fusion/` (`runs.csv`, `validation_grid.csv`, `test_predictions.csv`); `notebooks/07_fusion.ipynb`.
+
+## D19 — Reducing the sad/calm confusion: two-stage model and pretrained embeddings
+
+**Context.** Every model confuses Q3 (sad) and Q4 (calm): with the CNN, 37 % of sad songs are predicted as calm and 29 % of calm songs as sad, and the average spectra of the two quadrants differ by 0.4 dB (`notebooks/05_spectrograms.ipynb`). The coordinator asked for an attempt to reduce this confusion. Lyrics, which help most for these quadrants in the MERGE paper, are not part of MERGE Audio Balanced and would have to be collected from lyrics websites, so the attempt stays audio-only.
+
+**Step 1 — two-stage model on our features (`src/two_stage.py`).** The CNN decides high vs low arousal (P(Q1)+P(Q2) against P(Q3)+P(Q4)); for low-arousal clips a binary specialist trained only on the Q3/Q4 training songs decides sad vs calm. Candidates: logistic regression, SVM or Random Forest on the top 20/40/80/155 features ranked by Kruskal–Wallis ε² between Q3 and Q4 on the training set, combined with the CNN's Q3/Q4 ratio by a weight from 0 to 1; the CNN alone or the best candidate is chosen on validation. **Result:** no change on unseen artists (macro-F1 0.694, 75.6 sad/calm confusions per split, as for the CNN). The validation gains of 0.01–0.03 did not carry over to the test sets.
+
+**Step 2 — pretrained embeddings (`src/panns_embeddings.py`, `src/pretrained_experiments.py`).** PANNs Cnn14 (Kong et al., 2020, pretrained on AudioSet) gives a 2,048-dimensional embedding per clip (32 kHz mono, first 30 s), extracted once (48 minutes on the laptop) and stored in `data/embeddings/`. The model checkpoint is downloaded from Zenodo into `models/pretrained/`. On each split, with all choices on validation: a four-class SVM or logistic regression on the embedding alone or with the 155 features; its probabilities (sigmoid-calibrated) fused with the CNN's; and the two-stage model of step 1 with a specialist on the embedding.
+
+**Results on the five artist splits (mean).**
+
+| model | macro-F1 | F1 Q3 | F1 Q4 | sad/calm confusions per split |
+|---|---|---|---|---|
+| CNN (D17) | 0.694 ± 0.018 | 0.558 | 0.567 | 75.6 |
+| two-stage, our features | 0.694 ± 0.018 | 0.563 | 0.574 | 75.6 |
+| SVM on PANNs + 155 features | 0.711 ± 0.020 | 0.585 | 0.592 | 68.8 |
+| **CNN + (SVM on PANNs + 155 features)** | **0.713 ± 0.023** | 0.592 | 0.582 | 69.4 |
+| two-stage, PANNs specialist | 0.709 ± 0.024 | **0.607** | **0.597** | **68.0** |
+
+**Decision.** The final model is the fusion of the CNN with the SVM on PANNs embedding + 155 features: it had the highest validation macro-F1 on all six splits, improves on the CNN on unseen artists (+0.019; pooled McNemar p = 0.027) and reaches 0.726 on the official split (published audio-only baseline: 68.52 %). The two-stage model with a PANNs specialist is reported as the model aimed at the sad/calm pair: it gives the largest and the only clearly significant sad/calm improvement (on the Q3/Q4 test songs, 133 songs right where the CNN is wrong against 75, p = 0.0001), but it was not the best variant on validation and is therefore not the selected model.
+
+**Reasons.** The negative result of step 1 shows that the limitation lies in the information available to the models, not in their structure; a representation learned from about two million audio clips supplies cues that 2,264 training songs cannot. Selecting the final model by validation macro-F1, as in D10, keeps the test sets untouched; the sad/calm-specific result is reported separately and labelled as measured on test. The CNN (D17) and the SVM on hand-crafted features (D15) remain the reference models of the two families compared in the thesis; the pretrained model is reported as an extension.
+
+**Evidence.** `src/two_stage.py`, `results/two_stage/`; `src/panns_embeddings.py`, `data/embeddings/panns_cnn14.json`; `src/pretrained_experiments.py`, `results/pretrained/`; `notebooks/08_sad_vs_calm.ipynb`, `results/pretrained/figures/`.

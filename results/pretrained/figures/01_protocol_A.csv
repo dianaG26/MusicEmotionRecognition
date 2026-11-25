@@ -1,0 +1,10 @@
+,test_macro_f1,test_accuracy,test_f1_Q3,test_f1_Q4
+CNN (reference),0.6816,0.686,0.5068,0.552
+"step 1: two-stage, our features (selected on validation)",0.6987,0.7004,0.5439,0.5794
+"step 1: two-stage, our features only",0.6739,0.6756,0.5221,0.5022
+PANNs embedding + SVM/LR,0.7184,0.7169,0.6667,0.582
+PANNs + 155 features + SVM,0.7265,0.7252,0.675,0.5992
+CNN + PANNs model,0.6778,0.6818,0.5135,0.5462
+CNN + (PANNs + 155 features) model,0.7262,0.7252,0.6778,0.5992
+"two-stage, PANNs specialist",0.7221,0.7231,0.616,0.6008
+"two-stage, PANNs + features specialist",0.7157,0.7169,0.5923,0.5992

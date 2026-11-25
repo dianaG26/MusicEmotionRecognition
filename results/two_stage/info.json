@@ -1,0 +1,61 @@
+{
+  "created": "2026-11-25T14:23:17",
+  "stage_1": "CNN (cnn_small_<protocol>): high arousal if P(Q1) + P(Q2) >= P(Q3) + P(Q4); then Q1 or Q2 by the larger CNN probability",
+  "stage_2": "low-arousal clips: weight_cnn * P_CNN(Q3 | Q3 or Q4) + (1 - weight_cnn) * P_specialist(Q3) >= 0.5 -> Q3, else Q4",
+  "specialist": "binary classifier trained only on the Q3 and Q4 training songs, on the top-k tonal features ranked by Kruskal-Wallis epsilon squared between Q3 and Q4 on those songs",
+  "grids": {
+    "logreg": {
+      "C": [
+        "0.01",
+        "0.1",
+        "1",
+        "10"
+      ]
+    },
+    "svm": {
+      "C": [
+        "0.1",
+        "1",
+        "10"
+      ],
+      "gamma": [
+        "scale",
+        "0.001",
+        "0.01"
+      ]
+    },
+    "rf": {
+      "min_samples_leaf": [
+        "1",
+        "4"
+      ]
+    }
+  },
+  "top_k": [
+    20,
+    40,
+    80,
+    "all"
+  ],
+  "weights": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "selection": "on each split, the CNN alone or the two-stage candidate with the highest validation macro-F1; ties go to the CNN alone",
+  "cnn_probabilities": "read from results/cnn/<run>/validate_predictions.csv and test_predictions.csv (6 crops)",
+  "elapsed_minutes": 4.7,
+  "seed": 42,
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "sklearn": "1.9.1",
+  "numpy": "2.5.4"
+}

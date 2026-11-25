@@ -1,0 +1,216 @@
+{
+  "B": {
+    "CNN (reference)": {
+      "macro_f1": 0.6939,
+      "sd": 0.0184,
+      "accuracy": 0.6983,
+      "f1_Q3": 0.5576,
+      "f1_Q4": 0.5672,
+      "q3_q4_confusions": 75.6,
+      "sad_calm_accuracy": 0.6271
+    },
+    "step 1: two-stage, our features (selected on validation)": {
+      "macro_f1": 0.6937,
+      "sd": 0.0176,
+      "accuracy": 0.6957,
+      "f1_Q3": 0.5633,
+      "f1_Q4": 0.5737,
+      "q3_q4_confusions": 75.6,
+      "sad_calm_accuracy": 0.6329
+    },
+    "step 1: two-stage, our features only": {
+      "macro_f1": 0.6903,
+      "sd": 0.0234,
+      "accuracy": 0.6918,
+      "f1_Q3": 0.5435,
+      "f1_Q4": 0.5843,
+      "q3_q4_confusions": 76.8,
+      "sad_calm_accuracy": 0.6289
+    },
+    "PANNs embedding + SVM/LR": {
+      "macro_f1": 0.6966,
+      "sd": 0.0116,
+      "accuracy": 0.7009,
+      "f1_Q3": 0.5552,
+      "f1_Q4": 0.5792,
+      "q3_q4_confusions": 72.0,
+      "sad_calm_accuracy": 0.6391
+    },
+    "PANNs + 155 features + SVM": {
+      "macro_f1": 0.7109,
+      "sd": 0.02,
+      "accuracy": 0.7143,
+      "f1_Q3": 0.5849,
+      "f1_Q4": 0.5923,
+      "q3_q4_confusions": 68.8,
+      "sad_calm_accuracy": 0.6583
+    },
+    "CNN + PANNs model": {
+      "macro_f1": 0.7101,
+      "sd": 0.0265,
+      "accuracy": 0.7147,
+      "f1_Q3": 0.5878,
+      "f1_Q4": 0.5887,
+      "q3_q4_confusions": 69.6,
+      "sad_calm_accuracy": 0.6538
+    },
+    "CNN + (PANNs + 155 features) model": {
+      "macro_f1": 0.7129,
+      "sd": 0.0234,
+      "accuracy": 0.7177,
+      "f1_Q3": 0.5918,
+      "f1_Q4": 0.5816,
+      "q3_q4_confusions": 69.4,
+      "sad_calm_accuracy": 0.6534
+    },
+    "two-stage, PANNs specialist": {
+      "macro_f1": 0.7094,
+      "sd": 0.0244,
+      "accuracy": 0.7108,
+      "f1_Q3": 0.6072,
+      "f1_Q4": 0.5972,
+      "q3_q4_confusions": 68.0,
+      "sad_calm_accuracy": 0.6708
+    },
+    "two-stage, PANNs + features specialist": {
+      "macro_f1": 0.7035,
+      "sd": 0.0122,
+      "accuracy": 0.7048,
+      "f1_Q3": 0.5931,
+      "f1_Q4": 0.5876,
+      "q3_q4_confusions": 70.8,
+      "sad_calm_accuracy": 0.6577
+    }
+  },
+  "selected_per_split": {
+    "A": "cnn_fusion_panns_tonal",
+    "B42": "cnn_fusion_panns_tonal",
+    "B43": "cnn_fusion_panns_tonal",
+    "B44": "cnn_fusion_panns_tonal",
+    "B45": "cnn_fusion_panns_tonal",
+    "B46": "cnn_fusion_panns_tonal"
+  },
+  "mcnemar": [
+    {
+      "model": "step 1: two-stage, our features (selected on validation)",
+      "scope": "all songs",
+      "only_model_correct": 90,
+      "only_cnn_correct": 96,
+      "p_value": 0.714
+    },
+    {
+      "model": "step 1: two-stage, our features (selected on validation)",
+      "scope": "Q3 and Q4 songs",
+      "only_model_correct": 89,
+      "only_cnn_correct": 73,
+      "p_value": 0.2385
+    },
+    {
+      "model": "step 1: two-stage, our features only",
+      "scope": "all songs",
+      "only_model_correct": 187,
+      "only_cnn_correct": 202,
+      "p_value": 0.4779
+    },
+    {
+      "model": "step 1: two-stage, our features only",
+      "scope": "Q3 and Q4 songs",
+      "only_model_correct": 186,
+      "only_cnn_correct": 172,
+      "p_value": 0.4921
+    },
+    {
+      "model": "PANNs embedding + SVM/LR",
+      "scope": "all songs",
+      "only_model_correct": 295,
+      "only_cnn_correct": 289,
+      "p_value": 0.8361
+    },
+    {
+      "model": "PANNs embedding + SVM/LR",
+      "scope": "Q3 and Q4 songs",
+      "only_model_correct": 213,
+      "only_cnn_correct": 212,
+      "p_value": 1.0
+    },
+    {
+      "model": "PANNs + 155 features + SVM",
+      "scope": "all songs",
+      "only_model_correct": 298,
+      "only_cnn_correct": 261,
+      "p_value": 0.1278
+    },
+    {
+      "model": "PANNs + 155 features + SVM",
+      "scope": "Q3 and Q4 songs",
+      "only_model_correct": 216,
+      "only_cnn_correct": 189,
+      "p_value": 0.1963
+    },
+    {
+      "model": "CNN + PANNs model",
+      "scope": "all songs",
+      "only_model_correct": 157,
+      "only_cnn_correct": 119,
+      "p_value": 0.0258
+    },
+    {
+      "model": "CNN + PANNs model",
+      "scope": "Q3 and Q4 songs",
+      "only_model_correct": 118,
+      "only_cnn_correct": 95,
+      "p_value": 0.1315
+    },
+    {
+      "model": "CNN + (PANNs + 155 features) model",
+      "scope": "all songs",
+      "only_model_correct": 220,
+      "only_cnn_correct": 175,
+      "p_value": 0.0267
+    },
+    {
+      "model": "CNN + (PANNs + 155 features) model",
+      "scope": "Q3 and Q4 songs",
+      "only_model_correct": 164,
+      "only_cnn_correct": 145,
+      "p_value": 0.3058
+    },
+    {
+      "model": "two-stage, PANNs specialist",
+      "scope": "all songs",
+      "only_model_correct": 134,
+      "only_cnn_correct": 105,
+      "p_value": 0.0699
+    },
+    {
+      "model": "two-stage, PANNs specialist",
+      "scope": "Q3 and Q4 songs",
+      "only_model_correct": 133,
+      "only_cnn_correct": 75,
+      "p_value": 0.0001
+    },
+    {
+      "model": "two-stage, PANNs + features specialist",
+      "scope": "all songs",
+      "only_model_correct": 171,
+      "only_cnn_correct": 156,
+      "p_value": 0.4389
+    },
+    {
+      "model": "two-stage, PANNs + features specialist",
+      "scope": "Q3 and Q4 songs",
+      "only_model_correct": 170,
+      "only_cnn_correct": 126,
+      "p_value": 0.0123
+    }
+  ],
+  "q3_q4_epsilon_squared_mood": {
+    "Happy music": 0.02,
+    "Funny music": 0.0009,
+    "Sad music": 0.0056,
+    "Tender music": 0.0081,
+    "Exciting music": 0.003,
+    "Angry music": 0.0093,
+    "Scary music": 0.0
+  }
+}

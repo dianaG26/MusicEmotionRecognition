@@ -1,0 +1,52 @@
+{
+  "created": "2026-11-25T20:47:46",
+  "features": {
+    "panns": "2048-dimensional PANNs Cnn14 embedding (src/panns_embeddings.py)",
+    "panns_tonal": "PANNs embedding + 155 tonal hand-crafted features"
+  },
+  "four_class": "logistic regression or RBF SVM on standardised features, hyperparameters chosen on validation; probabilities by sigmoid calibration (5-fold CV on training set)",
+  "fusion": "weight_cnn * p_CNN + (1 - weight_cnn) * p_PANNs-model, weight chosen on validation",
+  "two_stage": "stage 1 = CNN arousal decision; stage 2 = binary Q3/Q4 specialist trained on the training Q3/Q4 songs, combined with the CNN's Q3/Q4 ratio by a weight chosen on validation",
+  "selection": "per split, the variant with the highest validation macro-F1; ties go to the CNN",
+  "grids": {
+    "logreg": {
+      "C": [
+        "0.001",
+        "0.01",
+        "0.1",
+        "1"
+      ]
+    },
+    "svm": {
+      "C": [
+        "0.1",
+        "1",
+        "10"
+      ],
+      "gamma": [
+        "scale",
+        "0.0001",
+        "0.001"
+      ]
+    }
+  },
+  "weights": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "elapsed_minutes": 32.5,
+  "seed": 42,
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "sklearn": "1.9.1",
+  "numpy": "2.5.4"
+}

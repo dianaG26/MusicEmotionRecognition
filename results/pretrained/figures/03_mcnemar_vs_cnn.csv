@@ -1,0 +1,17 @@
+model,scope,only_model_correct,only_cnn_correct,p_value
+"step 1: two-stage, our features (selected on validation)",all songs,90,96,0.714
+"step 1: two-stage, our features (selected on validation)",Q3 and Q4 songs,89,73,0.2385
+"step 1: two-stage, our features only",all songs,187,202,0.4779
+"step 1: two-stage, our features only",Q3 and Q4 songs,186,172,0.4921
+PANNs embedding + SVM/LR,all songs,295,289,0.8361
+PANNs embedding + SVM/LR,Q3 and Q4 songs,213,212,1.0
+PANNs + 155 features + SVM,all songs,298,261,0.1278
+PANNs + 155 features + SVM,Q3 and Q4 songs,216,189,0.1963
+CNN + PANNs model,all songs,157,119,0.0258
+CNN + PANNs model,Q3 and Q4 songs,118,95,0.1315
+CNN + (PANNs + 155 features) model,all songs,220,175,0.0267
+CNN + (PANNs + 155 features) model,Q3 and Q4 songs,164,145,0.3058
+"two-stage, PANNs specialist",all songs,134,105,0.0699
+"two-stage, PANNs specialist",Q3 and Q4 songs,133,75,0.0001
+"two-stage, PANNs + features specialist",all songs,171,156,0.4389
+"two-stage, PANNs + features specialist",Q3 and Q4 songs,170,126,0.0123
